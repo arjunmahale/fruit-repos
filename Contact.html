@@ -117,101 +117,82 @@
       h1 {
         text-align: center;
       }
-      .testimonial-section {
-            padding: 80px 0;
-            text-align: center;
-        }
-        .section-subtitle {
-            font-size: 1.25rem;
-            color: #81c408;
-            font-weight: 600;
-            margin-bottom: 8px;
-        }
-        .section-title {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: #343a40;
-            margin-bottom: 40px;
-        }
-        .carousel-control-prev,
-        .carousel-control-next {
-            position: relative;
-            width: auto;
-            opacity: 1;
-        }
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            background-image: none;
-            display: inline-block;
-            width: 50px;
-            height: 50px;
-            background-color: #fff;
-            border: 2px solid #ffc107;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #ffc107;
-            transition: all 0.1s ease;
-        }
-        .carousel-control-prev-icon:hover,
-        .carousel-control-next-icon:hover {
-            background-color: #ffc107;
-            color: #fff;
-        }
-        .testimonial-card {
-            background-color: #fff;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
-            padding: 30px;
-            margin: 20px 10px;
-            text-align: left;
-            border: none;
-        }
-        .testimonial-text {
-            font-size: 1rem;
-            color: #6c757d;
-            margin-bottom: 20px;
-            line-height: 1.6;
-        }
-        .quote-icon {
-            font-size: 2.5rem;
-            color: #ffc107;
-        }
-        .client-info {
-            display: flex;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .client-info img {
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            object-fit: cover;
-            margin-right: 15px;
-        }
-        .client-name {
-            font-weight: 600;
-            color: #343a40;
-        }
-        .client-profession {
-            color: #6c757d;
-            font-size: 0.9rem;
-        }
-        .star-rating {
-            color: #ffc107;
-            font-size: 1.2rem;
-            margin-top: 5px;
-        }
-        .star-rating .fa-star {
-            margin-right: 2px;
-        }
-        .card-footer-line {
-            height: 2px;
-            background-color: #ffc107;
-            margin: 20px 0;
-        }
-        .footer {
+      .container-main {
+        padding: 50px 0;
+      }
+      .card-custom {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        margin-bottom: 24px;
+      }
+      .form-control-custom {
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        padding: 12px;
+        background-color: #f7f7f7;
+        margin-bottom: 16px;
+      }
+      .form-control-custom:focus {
+        box-shadow: none;
+        border-color: #81c408;
+        background-color: #fff;
+      }
+      .btn-custom {
+        background-color: #fff;
+        color: #81c408;
+        border: 2px solid #ffc107;
+        border-radius: 8px;
+        padding: 12px 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+      }
+      .btn-custom:hover {
+        background-color: #ffc107;
+        color: #fff;
+      }
+      .info-icon-card {
+        color: #81c408;
+        font-size: 24px;
+      }
+      .info-icon-card .fa-solid {
+        font-size: 1.5rem;
+        margin-right: 15px;
+      }
+      .info-card-text {
+        color: #555;
+        font-size: 1rem;
+      }
+      .card-contact-info {
+        background-color: #fff;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 24px;
+        margin-bottom: 24px;
+        display: flex;
+        align-items: center;
+      }
+      .card-contact-info h5 {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 0;
+      }
+      .card-contact-info p {
+        margin-bottom: 0;
+        color: #6c757d;
+      }
+      .icon-container {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background-color: #e6f3d4;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 15px;
+      }
+      .footer {
         background-color: var(--primary-bg);
         color: var(--text-color);
         padding: 50px 0;
@@ -272,8 +253,14 @@
                 <ul class="dropdown-menu">
                   <li><a class="dropdown-item" href="#">Cart</a></li>
                   <li><a class="dropdown-item" href="#">Checkout</a></li>
-                  <li><a class="dropdown-item" href="Testimonial.html">Testimonial</a></li>
-                  <li><a class="dropdown-item" href="404_page.html">404 Page</a></li>
+                  <li>
+                    <a class="dropdown-item" href="Testimonial.html"
+                      >Testimonial</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="404_page.html">404 Page</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
@@ -298,94 +285,92 @@
     </div>
 
     <div class="header">
-      <h1>Testimonial</h1>
+      <h1>Contact</h1>
     </div>
 
-    <section class="testimonial-section">
-        <div class="container">
-            <h3 class="section-subtitle">Our Testimonial</h3>
-            <h2 class="section-title">Our Client Saying!</h2>
-
-            <div class="d-flex justify-content-center align-items-center mb-4">
-                <a class="carousel-control-prev" href="#testimonialCarousel" role="button" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon">
-                        <i class="fas fa-arrow-left"></i>
-                    </span>
-                </a>
-                <a class="carousel-control-next" href="#testimonialCarousel" role="button" data-bs-slide="next">
-                    <span class="carousel-control-next-icon">
-                        <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
-            </div>
-
-            <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false">
-                <div class="carousel-inner">
-                    <!-- First Testimonial Set -->
-                    <div class="carousel-item active">
-                        <div class="row justify-content-center">
-                            <div class="col-md-6 mb-4">
-                                <div class="card testimonial-card">
-                                    <p class="testimonial-text">
-                                        Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                        industry's standard dummy text ever since the 1500s,
-                                    </p>
-                                    <div class="card-footer-line"></div>
-                                    <div class="d-flex justify-content-between align-items-end">
-                                        <div class="client-info">
-                                            <img src="testimonial-1.jpg" alt="Client 1">
-                                            <div>
-                                                <div class="client-name">Client Name</div>
-                                                <div class="client-profession">Profession</div>
-                                                <div class="star-rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="quote-icon">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-6 mb-4">
-                                <div class="card testimonial-card">
-                                    <p class="testimonial-text">
-                                        Lorem Ipsum is simply dummy text of the printing Ipsum has been the
-                                        industry's standard dummy text ever since the 1500s,
-                                    </p>
-                                    <div class="card-footer-line"></div>
-                                    <div class="d-flex justify-content-between align-items-end">
-                                        <div class="client-info">
-                                            <img src="testimonial-1.jpg" alt="Client 2">
-                                            <div>
-                                                <div class="client-name">Client Name</div>
-                                                <div class="client-profession">Profession</div>
-                                                <div class="star-rating">
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                    <i class="fa-solid fa-star"></i>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="quote-icon">
-                                            <i class="fa-solid fa-quote-right"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <div class="container container-main">
+      <div class="row g-4">
+        <!-- Contact Form Section -->
+        <div class="col-lg-7">
+          <div class="card-custom">
+            <form>
+              <div class="mb-3">
+                <label for="name" class="form-label visually-hidden"
+                  >Your Name</label
+                >
+                <input
+                  type="text"
+                  class="form-control form-control-custom"
+                  id="name"
+                  placeholder="Your Name"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="email" class="form-label visually-hidden"
+                  >Enter Your Email</label
+                >
+                <input
+                  type="email"
+                  class="form-control form-control-custom"
+                  id="email"
+                  placeholder="Enter Your Email"
+                />
+              </div>
+              <div class="mb-3">
+                <label for="message" class="form-label visually-hidden"
+                  >Your Message</label
+                >
+                <textarea
+                  class="form-control form-control-custom"
+                  id="message"
+                  rows="7"
+                  placeholder="Your Message"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-custom w-100">Submit</button>
+            </form>
+          </div>
         </div>
-    </section>
+
+        <!-- Information Cards Section -->
+        <div class="col-lg-5">
+          <div class="d-flex flex-column h-100">
+            <!-- Address Card -->
+            <div class="card-contact-info flex-grow-1">
+              <div class="icon-container">
+                <i class="fa-solid fa-map-marker-alt info-icon-card"></i>
+              </div>
+              <div>
+                <h5>Address</h5>
+                <p class="info-card-text">123 Street New York, USA</p>
+              </div>
+            </div>
+
+            <!-- Mail Card -->
+            <div class="card-contact-info flex-grow-1">
+              <div class="icon-container">
+                <i class="fa-solid fa-envelope info-icon-card"></i>
+              </div>
+              <div>
+                <h5>Mail Us</h5>
+                <p class="info-card-text">info@example.com</p>
+              </div>
+            </div>
+
+            <!-- Telephone Card -->
+            <div class="card-contact-info flex-grow-1">
+              <div class="icon-container">
+                <i class="fa-solid fa-phone info-icon-card"></i>
+              </div>
+              <div>
+                <h5>Telephone</h5>
+                <p class="info-card-text">(+012) 3456 7890</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="footer">
       <div class="container-fluid py-5">
@@ -492,7 +477,11 @@
       </div>
     </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <!-- Bootstrap JS -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

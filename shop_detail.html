@@ -3,12 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Fruitables - Shop Detail</title>
+    <title>Shop Detail</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
-      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
@@ -20,7 +18,6 @@
         padding: 0;
         scroll-behavior: smooth;
       }
-
       :root {
         --primary-bg: #495449;
         --secondary-bg: #3c423c;
@@ -32,7 +29,6 @@
         --social-bg: #5f665f;
         --social-link: #ffffff;
       }
-
       .sec1 {
         height: 100px;
         width: 100%;
@@ -48,19 +44,16 @@
         font-size: 2.5rem;
         color: #81c408 !important;
       }
-
       .nav-link {
         font-size: 1.1rem;
         font-weight: 500;
         color: #6c757d !important;
         margin-right: 15px;
       }
-
       .nav-link.active {
         color: #81c408 !important;
       }
-
-      .icon-btn {
+      .icon-btn1 {
         border: 1px solid #ffb524;
         border-radius: 50%;
         width: 45px;
@@ -73,8 +66,7 @@
         margin-left: 10px;
         text-decoration: none;
       }
-
-      .cart-icon {
+      .cart-icon1 {
         background-color: #81c408;
         border-radius: 50%;
         width: 45px;
@@ -86,8 +78,7 @@
         margin-left: 10px;
         text-decoration: none;
       }
-
-      .cart-badge {
+      .cart-badge1 {
         position: absolute;
         top: -5px;
         right: -5px;
@@ -97,7 +88,6 @@
         padding: 0 6px;
         font-size: 0.75rem;
       }
-
       .header {
         height: 200px;
         width: 100%;
@@ -109,82 +99,81 @@
         align-items: center;
         justify-content: center;
       }
-
       .header h1 {
         color: white;
         font-size: 50px;
         font-weight: bold;
         text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
       }
-
+      h1 {
+        text-align: center;
+      }
+      /* brocali */
+      .product-card1 {
+        max-width: 900px;
+        border-radius: 1rem;
+      }
+      .card-title1 {
+        color: #343a40;
+      }
+      .card-price1 {
+        color: #28a745;
+      }
+      .star-rating i {
+        font-size: 1.25rem;
+      }
+      .btn-add-to-cart1 {
+        background-color: #ffffff;
+        color: #28a745;
+        border: 2px solid #28a745;
+        border-radius: 2rem;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      .btn-add-to-cart1:hover {
+        background-color: #28a745;
+        color: #ffffff;
+      }
+      .input-group1 .form-control {
+        border-color: #ced4da;
+        border-left: 0;
+        border-right: 0;
+        box-shadow: none;
+        background-color: #ffffff;
+        font-weight: bold;
+      }
+      .input-group1 .btn {
+        border-color: #ced4da;
+        color: #6c757d;
+      }
+      .input-group1 .btn:hover {
+        background-color: #e9ecef;
+      }
+      /* Product Grid */
       .product-card {
-        max-width: 850px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        overflow: hidden;
+        border: 2px solid #28a745;
+        background: white;
+        height: 100%;
       }
-
-      .star-rating .bi-star-fill {
-        color: #ffc107;
+      .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
       }
-
-      .quantity-control .btn {
-        background-color: #f8f9fa;
-        border: 1px solid #dee2e6;
-        width: 35px;
-        height: 35px;
+      .product-image {
+        height: 200px;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
         display: flex;
         align-items: center;
         justify-content: center;
+        font-size: 4rem;
+        color: #81c408;
+        position: relative;
       }
-
-      .add-to-cart-btn {
-        background-color: #28a745;
-        color: white;
-        border: none;
-        padding: 12px;
-        border-radius: 8px;
-        transition: background-color 0.3s;
-      }
-
-      .add-to-cart-btn:hover {
-        background-color: #218838;
-      }
-
-      .category-text {
-        color: #6c757d;
-      }
-
-      .nav-tabs .nav-link.active {
-        color: #ffc107 !important;
-        border-bottom: 2px solid #ffc107;
-        background: none;
-        border-top: none;
-        border-left: none;
-        border-right: none;
-      }
-
-      .table-striped > tbody > tr:nth-of-type(odd) {
-        background-color: #f8f9fa;
-      }
-
-      .card {
-        border-radius: 15px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        overflow: hidden;
-        border: 2px solid #28a745;
-      }
-
-      .card:hover {
-        transform: translateY(-5px);
-      }
-
-      .card-img-top {
-        border-top-left-radius: 13px;
-        border-top-right-radius: 13px;
-        height: 200px;
-        object-fit: cover;
-      }
-
-      .tag {
+      .product-tag {
         position: absolute;
         top: 10px;
         right: 10px;
@@ -195,25 +184,22 @@
         font-size: 0.8rem;
         font-weight: bold;
       }
-
-      .card-title {
+      .product-title {
         font-size: 1.25rem;
         font-weight: bold;
-        margin-bottom: 0.5rem;
         color: #343a40;
+        margin-bottom: 0.5rem;
       }
-
-      .card-text {
+      .product-description {
         font-size: 0.9rem;
         color: #6c757d;
+        margin-bottom: 1rem;
       }
-
-      .price {
+      .product-price {
         font-size: 1.25rem;
         font-weight: bold;
         color: #28a745;
       }
-
       .btn-add-to-cart {
         background-color: white;
         color: #28a745;
@@ -222,28 +208,160 @@
         font-weight: bold;
         padding: 8px 16px;
         text-decoration: none;
-        transition: background-color 0.2s, color 0.2s;
+        transition: all 0.3s ease;
+        cursor: pointer;
       }
-
       .btn-add-to-cart:hover {
         background-color: #28a745;
         color: white;
       }
-
-      .nav-arrows .btn {
-        background-color: white;
-        color: #28a745;
-        border: 1px solid #28a745;
+      /* Shopping Cart Sidebar */
+      .cart-sidebar {
+        width: 400px;
+        background-color: #353432;
+        color: #eee;
+        position: fixed;
+        top: 0;
+        right: -400px;
+        bottom: 0;
+        display: grid;
+        grid-template-rows: 70px 1fr 70px;
+        transition: 0.5s ease;
+        z-index: 9999;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+      }
+      body.show-cart .cart-sidebar {
+        right: 0;
+      }
+      body.show-cart .main-content {
+        transform: translateX(-200px);
+      }
+      .cart-header {
+        padding: 20px;
+        margin: 0;
+        font-weight: 300;
+        border-bottom: 1px solid #555;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .cart-close {
+        background: none;
+        border: none;
+        color: #eee;
+        font-size: 1.5rem;
+        cursor: pointer;
+      }
+      .cart-items {
+        overflow-y: auto;
+        padding: 10px;
+      }
+      .cart-item {
+        display: grid;
+        grid-template-columns: 60px 1fr 80px 60px;
+        gap: 10px;
+        padding: 15px 10px;
+        border-bottom: 1px solid #555;
+        align-items: center;
+      }
+      .cart-item img {
+        width: 50px;
+        height: 50px;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+      }
+      .cart-item-name {
+        font-size: 0.9rem;
+        color: #eee;
+      }
+      .cart-item-price {
+        font-weight: bold;
+        color: #81c408;
+      }
+      .quantity-controls {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+      .quantity-btn {
+        width: 25px;
+        height: 25px;
+        background-color: #81c408;
+        border: none;
         border-radius: 50%;
-        width: 40px;
-        height: 40px;
-        display: inline-flex;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+      }
+      .quantity-display {
+        color: #eee;
+        margin: 0 5px;
+        min-width: 20px;
+        text-align: center;
+      }
+      .cart-buttons {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+      }
+      .cart-btn {
+        background-color: #81c408;
+        border: none;
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        cursor: pointer;
+        padding: 20px;
+        color: white;
+        transition: background-color 0.3s;
+      }
+      .cart-btn.close-btn {
+        background-color: #6c757d;
+      }
+      .cart-btn:hover {
+        opacity: 0.9;
+      }
+      /* Product Icons */
+      .product-icon {
+        font-size: 4rem;
+        color: #81c408;
+      }
+      /* Loading Animation */
+      .loading {
+        display: flex;
         justify-content: center;
         align-items: center;
-        font-size: 1.25rem;
-        margin-left: 10px;
+        height: 200px;
+        color: #81c408;
+        font-size: 1.2rem;
       }
-
+      /* Responsive Design */
+      @media (max-width: 992px) {
+        .product-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      @media (max-width: 768px) {
+        .product-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .cart-sidebar {
+          width: 100%;
+          right: -100%;
+        }
+        body.show-cart .main-content {
+          transform: translateX(0);
+        }
+      }
+      @media (max-width: 576px) {
+        .product-grid {
+          grid-template-columns: 1fr;
+        }
+        .hero-section h1 {
+          font-size: 2rem;
+        }
+      }
       .footer {
         background-color: var(--primary-bg);
         color: var(--text-color);
@@ -274,11 +392,6 @@
         text-decoration: none;
         line-height: 2;
       }
-
-      .payment-icons img {
-        height: 25px;
-        margin-right: 5px;
-      }
     </style>
   </head>
   <body>
@@ -308,26 +421,36 @@
                   Pages
                 </a>
                 <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="Card.html">Cart</a></li>
-                  <li><a class="dropdown-item" href="Checkout.html">Checkout</a></li>
-                  <li><a class="dropdown-item" href="Testimonial.html">Testimonial</a></li>
-                  <li><a class="dropdown-item" href="#">404 Page</a></li>
+                  <li><a class="dropdown-item" href="#">Cart</a></li>
+                  <li><a class="dropdown-item" href="#">Checkout</a></li>
+                  <li>
+                    <a class="dropdown-item" href="Testimonial.html"
+                      >Testimonial</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="404_page.html">404 Page</a>
+                  </li>
                 </ul>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Contact</a>
+                <a class="nav-link" href="Contact.html">Contact</a>
               </li>
             </ul>
           </div>
           <div class="d-flex align-items-center">
-            <a href="#" class="icon-btn me-2">
+            <a href="#" class="icon-btn1 me-2">
               <i class="fa-solid fa-magnifying-glass"></i>
             </a>
-            <a href="Card.html" class="cart-icon position-relative me-2">
+            <a
+              href="#"
+              class="cart-icon1 position-relative me-2"
+              id="cart-toggle"
+            >
               <i class="fa-solid fa-shopping-bag"></i>
-              <span class="cart-badge" id="cart-count"></span>
+              <span class="cart-badge1" id="cart-count">0</span>
             </a>
-            <a href="#" class="cart-icon">
+            <a href="#" class="cart-icon1">
               <i class="fa-solid fa-user"></i>
             </a>
           </div>
@@ -336,166 +459,116 @@
     </div>
 
     <div class="header">
-      <h1>Shop Detail</h1>
+      <h1>Shop Details</h1>
     </div>
 
-    <div class="container py-5">
-      <div class="card product-card mx-auto shadow-sm">
+    <div
+      class="container d-flex justify-content-center align-items-center vh-100"
+    >
+      <div class="card product-card1 shadow-sm border-0">
         <div class="row g-0">
-          <div class="col-md-6">
-            <div
-              style="
-                height: 400px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                border-radius: 8px 0 0 8px;
-              "
-            >
-              <img src="brocali.jpg" class="w-100" />
-            </div>
+          <div
+            class="col-md-6 d-flex justify-content-center align-items-center p-3"
+          >
+            <img
+              src="brocali.jpg"
+              class="img-fluid rounded-start"
+              alt="Broccoli"
+            />
           </div>
-          <div class="col-md-6">
-            <div class="card-body p-4">
-              <h2 class="card-title" id="product-name">Broccoli</h2>
-              <p class="card-text category-text">Category: Vegetables</p>
-              <h3 class="my-3 text-success" id="product-price">$3.35</h3>
-              <div class="d-flex align-items-center mb-3">
-                <div class="star-rating me-2">
-                  <span style="color: #ffc107">★★★★★</span>
-                </div>
+          <div class="col-md-6 p-4">
+            <div class="card-body">
+              <h2 class="card-title1 fw-bold">Brocoli</h2>
+              <p class="text-muted mb-2">Category: Vegetables</p>
+              <h3 class="card-price1 fw-bold mb-3">3.35 $</h3>
+              <div class="star-rating mb-3">
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star text-warning"></i>
+                <i class="fas fa-star-half-alt text-warning"></i>
               </div>
-              <p class="card-text">
+              <p class="card-text text-muted mb-3">
                 The generated Lorem Ipsum is therefore always free from
                 repetition injected humour, or non-characteristic words etc.
               </p>
-              <p class="card-text">
+              <p class="card-text text-muted mb-4">
                 Susp endisse ultricies nisi vel quam suscipit. Sabertooth
                 peacock flounder; chain pickerel hatchetfish, pencilfish
                 snailfish
               </p>
-              <div class="d-flex align-items-center mb-3 quantity-control">
-                <button class="btn btn-sm" id="decrease-quantity">-</button>
-                <span class="mx-3 fw-bold" id="product-quantity">1</span>
-                <button class="btn btn-sm" id="increase-quantity">+</button>
+              <div class="input-group1 mb-4 w-50">
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="minus-btn"
+                >
+                  -
+                </button>
+                <input
+                  type="text"
+                  class="form-control text-center"
+                  value="1"
+                  id="quantity-input"
+                  readonly
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="plus-btn"
+                >
+                  +
+                </button>
               </div>
-              <button
-                class="btn add-to-cart-btn d-flex align-items-center justify-content-center w-100"
-                id="add-to-cart-btn"
-              >
-                <i class="fa-solid fa-shopping-cart me-2"></i>
-                <span>Add to cart</span>
-              </button>
+              <div class="d-grid">
+                <button class="btn btn-add-to-cart1 py-2" type="button">
+                  <i class="fas fa-shopping-cart me-2"></i> Add to cart
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container py-5" id="cart-page-section" style="display: none">
-      <h2>Your Cart</h2>
-      <div class="row g-4" id="cart-items-container">
+    <div class="main-content" style="transition: transform 0.5s">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="display-6 mb-3">Our Products</h2>
+          <p class="text-muted">
+            Fresh and organic products delivered to your door
+          </p>
         </div>
-    </div>
-    <div class="container py-5" id="empty-cart-message">
-      <p>Your cart is empty. Add some products to see them here!</p>
+        <div id="products-container" class="row g-4">
+          <div class="loading text-center w-100">
+            <i class="fas fa-spinner fa-spin me-2"></i>
+            Loading products...
+          </div>
+        </div>
+      </div>
     </div>
 
+    <div class="cart-sidebar" id="cart-sidebar">
+      <div class="cart-header">
+        <h3>Shopping Cart</h3>
+        <button class="cart-close" id="cart-close">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cart-items">
+        <div class="text-center text-muted mt-5">
+          <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+          <p>Your cart is empty</p>
+        </div>
+      </div>
+      <div class="cart-buttons">
+        <button class="cart-btn close-btn" id="close-cart">CLOSE</button>
+        <button class="cart-btn" id="checkout">CHECK OUT</button>
+      </div>
+    </div>
     <hr />
 
-    <div class="container py-5">
-      <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>Related Products</h2>
-        <div class="nav-arrows">
-          <button class="btn">&larr;</button>
-          <button class="btn">&rarr;</button>
-        </div>
-      </div>
-      <div class="row g-4" id="related-products-container">
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="card">
-            <div class="position-relative">
-              <img src="parsely.jpg" class="card-img-top w-100" />
-              <span class="tag">Vegetable</span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Parsley</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                eiusmod te incididunt
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$4.99 / kg</span>
-                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="card">
-            <div class="position-relative">
-              <img src="banana.jpg" class="card-img-top w-100" />
-              <span class="tag">Fruit</span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Banana</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                eiusmod te incididunt
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$7.99 / kg</span>
-                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="card">
-            <div class="position-relative">
-              <img src="bell paper.jpg" class="card-img-top w-100" />
-              <span class="tag">Vegetable</span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Bell Pepper</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                eiusmod te incididunt
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$7.99 / kg</span>
-                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-12 col-sm-6 col-md-3">
-          <div class="card">
-            <div class="position-relative">
-              <img src="potato.jpg" class="card-img-top w-100" />
-              <span class="tag">Vegetable</span>
-            </div>
-            <div class="card-body">
-              <h5 class="card-title">Potatoes</h5>
-              <p class="card-text">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
-                eiusmod te incididunt
-              </p>
-              <div class="d-flex justify-content-between align-items-center">
-                <span class="price">$7.99 / kg</span>
-                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <hr />
-
+    <!-- footer -->
     <footer class="footer">
       <div class="container-fluid py-5">
         <div class="container">
@@ -545,9 +618,9 @@
               <div class="footer-item">
                 <h4 class="text-white mb-4">Why People Like Us!</h4>
                 <p>
-                  Typesetting, remaining essentially unchanged. It was popularised
-                  in the 1960s with the like Aldus PageMaker including of Lorem
-                  Ipsum.
+                  Typesetting, remaining essentially unchanged. It was
+                  popularised in the 1960s with the like Aldus PageMaker
+                  including of Lorem Ipsum.
                 </p>
                 <a
                   href="#"
@@ -576,7 +649,9 @@
                 <a class="btn-link text-white-50" href="#">Shopping Cart</a>
                 <a class="btn-link text-white-50" href="#">Wishlist</a>
                 <a class="btn-link text-white-50" href="#">Order History</a>
-                <a class="btn-link text-white-50" href="#">International Orders</a>
+                <a class="btn-link text-white-50" href="#"
+                  >International Orders</a
+                >
               </div>
             </div>
             <div class="col-lg-3 col-md-6">
@@ -599,192 +674,294 @@
       </div>
     </footer>
 
-    <div class="container-fluid py-4" style="background-color: #3c423c">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-white-50"
-          >
-            &copy; <a class="text-info" href="#">Your Site Name</a>, All rights
-            reserved.
-          </div>
-          <div class="col-md-6 text-center text-md-end text-white-50">
-            Designed By
-            <a class="border-bottom" href="#">Aniket Wani</a> Distributed By
-            <a class="border-bottom" href="#">A2Z IT HUB</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      //navbar
-      window.addEventListener("scroll", () => {
-        const navbar = document.querySelector(".sec1");
-        const stickyPoint = navbar.offsetTop;
-        if (window.scrollY > stickyPoint) {
-          navbar.classList.add("sticky");
-        } else {
-          navbar.classList.remove("sticky");
+      // Brocoli product card quantity buttons
+      document.addEventListener("DOMContentLoaded", function () {
+        const minusBtn = document.getElementById("minus-btn");
+        const plusBtn = document.getElementById("plus-btn");
+        const quantityInput = document.getElementById("quantity-input");
+
+        if (minusBtn && plusBtn && quantityInput) {
+          minusBtn.addEventListener("click", () => {
+            let currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+              quantityInput.value = currentValue - 1;
+            }
+          });
+
+          plusBtn.addEventListener("click", () => {
+            let currentValue = parseInt(quantityInput.value);
+            quantityInput.value = currentValue + 1;
+          });
         }
       });
 
-      
+      // Sample product data (simulating JSON fetch)
+      const sampleProducts = [
+        {
+          id: 1,
+          name: "Fresh Apples",
+          price: 4.99,
+          category: "Fruit",
+          icon: "🍎",
+        },
+        {
+          id: 2,
+          name: "Organic Bananas",
+          price: 3.99,
+          category: "Fruit",
+          icon: "🍌",
+        },
+        {
+          id: 3,
+          name: "Fresh Broccoli",
+          price: 5.99,
+          category: "Vegetable",
+          icon: "🥦",
+        },
+        {
+          id: 4,
+          name: "Red Tomatoes",
+          price: 6.99,
+          category: "Vegetable",
+          icon: "🍅",
+        },
+        {
+          id: 5,
+          name: "Fresh Oranges",
+          price: 5.49,
+          category: "Fruit",
+          icon: "🍊",
+        },
+        {
+          id: 6,
+          name: "Green Lettuce",
+          price: 2.99,
+          category: "Vegetable",
+          icon: "🥬",
+        },
+        {
+          id: 7,
+          name: "Sweet Carrots",
+          price: 3.49,
+          category: "Vegetable",
+          icon: "🥕",
+        },
+        {
+          id: 8,
+          name: "Fresh Grapes",
+          price: 7.99,
+          category: "Fruit",
+          icon: "🍇",
+        },
+      ];
 
-      document.addEventListener("DOMContentLoaded", function () {
-        const increaseBtn = document.getElementById("increase-quantity");
-        const decreaseBtn = document.getElementById("decrease-quantity");
-        const quantitySpan = document.getElementById("product-quantity");
-        const addToCartBtn = document.getElementById("add-to-cart-btn");
-        const cartCountBadge = document.getElementById("cart-count");
-        const cartItemsContainer = document.getElementById("cart-items-container");
-        const emptyCartMessage = document.getElementById("empty-cart-message");
+      let products = [];
+      let cart = [];
 
-        function updateCartDisplay() {
-          if (cartItemsContainer.children.length > 0) {
-            document.getElementById("cart-page-section").style.display = "block";
-            emptyCartMessage.style.display = "none";
-          } else {
-            document.getElementById("cart-page-section").style.display = "none";
-            emptyCartMessage.style.display = "block";
-          }
+      // DOM Elements
+      const cartToggle = document.getElementById("cart-toggle");
+      const cartClose = document.getElementById("cart-close");
+      const closeCart = document.getElementById("close-cart");
+      const cartSidebar = document.getElementById("cart-sidebar");
+      const cartCount = document.getElementById("cart-count");
+      const cartItems = document.getElementById("cart-items");
+      const productsContainer = document.getElementById("products-container");
+      const body = document.body;
+
+      // Cart functionality
+      if (cartToggle) cartToggle.addEventListener("click", toggleCart);
+      if (cartClose) cartClose.addEventListener("click", toggleCart);
+      if (closeCart) closeCart.addEventListener("click", toggleCart);
+
+      function toggleCart() {
+        body.classList.toggle("show-cart");
+      }
+
+      // Initialize app
+      function initApp() {
+        // Simulate loading delay
+        setTimeout(() => {
+          products = sampleProducts;
+          renderProducts();
+          loadCartFromStorage();
+        }, 500);
+      }
+
+      // Render products
+      function renderProducts() {
+        if (products.length === 0) {
+          productsContainer.innerHTML =
+            '<div class="text-center w-100">No products available</div>';
+          return;
         }
 
-        increaseBtn.addEventListener("click", () => {
-          let currentQuantity = parseInt(quantitySpan.textContent);
-          currentQuantity++;
-          quantitySpan.textContent = currentQuantity;
-        });
-
-        decreaseBtn.addEventListener("click", () => {
-          let currentQuantity = parseInt(quantitySpan.textContent);
-          if (currentQuantity > 1) {
-            currentQuantity--;
-            quantitySpan.textContent = currentQuantity;
-          }
-        });
-
-        addToCartBtn.addEventListener("click", () => {
-          const quantityToAdd = parseInt(quantitySpan.textContent);
-          let currentCartCount = parseInt(cartCountBadge.textContent);
-          currentCartCount += quantityToAdd;
-          cartCountBadge.textContent = currentCartCount;
-
-          const productName = document.getElementById("product-name").textContent;
-          const productPrice = document.getElementById("product-price").textContent;
-          const productImage = document.querySelector(".product-card img").src;
-
-          let existingItem = document.querySelector(`.cart-item[data-product-name="${productName}"]`);
-          if (existingItem) {
-            let existingQuantity = parseInt(existingItem.dataset.quantity);
-            existingQuantity += quantityToAdd;
-            existingItem.dataset.quantity = existingQuantity;
-            existingItem.querySelector(".cart-item-quantity").textContent = `Quantity: ${existingQuantity}`;
-            existingItem.querySelector(".cart-item-price").textContent = `Total: $${(parseFloat(productPrice.substring(1)) * existingQuantity).toFixed(2)}`;
-          } else {
-            const newCartItem = document.createElement("div");
-            newCartItem.classList.add("col-12", "col-sm-6", "col-md-3", "cart-item");
-            newCartItem.dataset.productName = productName;
-            newCartItem.dataset.quantity = quantityToAdd;
-
-            newCartItem.innerHTML = `
-              <div class="card">
-                <div class="position-relative">
-                  <img src="${productImage}" class="card-img-top" alt="${productName}">
-                  <span class="tag">In Cart</span>
+        const productsHTML = products
+          .map(
+            (product) => `
+            <div class="col-12 col-sm-6 col-lg-3 mb-4">
+              <div class="card product-card h-100">
+                <div class="product-image position-relative">
+                  <div class="product-icon">${product.icon}</div>
+                  <span class="product-tag">${product.category}</span>
                 </div>
-                <div class="card-body">
-                  <h5 class="card-title">${productName}</h5>
-                  <p class="card-text cart-item-quantity">Quantity: ${quantityToAdd}</p>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <span class="price cart-item-price">Total: $${(parseFloat(productPrice.substring(1)) * quantityToAdd).toFixed(2)}</span>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="product-title">${product.name}</h5>
+                  <p class="product-description flex-grow-1">Fresh and organic ${product.name.toLowerCase()} delivered daily</p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto">
+                    <span class="product-price">$${product.price}</span>
+                    <button class="btn-add-to-cart" onclick="addToCart(${
+                      product.id
+                    })">
+                      Add to cart
+                    </button>
                   </div>
                 </div>
               </div>
-            `;
-            cartItemsContainer.appendChild(newCartItem);
-          }
-          
-          updateCartDisplay();
+            </div>
+          `
+          )
+          .join("");
 
-          addToCartBtn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Added!';
-          addToCartBtn.style.backgroundColor = "#218838";
-          setTimeout(() => {
-            addToCartBtn.innerHTML = '<i class="fa-solid fa-shopping-cart me-2"></i><span>Add to cart</span>';
-            addToCartBtn.style.backgroundColor = "#28A745";
-          }, 2000);
-        });
+        productsContainer.innerHTML = productsHTML;
+      }
 
-        document.querySelectorAll(".btn-add-to-cart").forEach((btn) => {
-          btn.addEventListener("click", (e) => {
-            e.preventDefault();
-            let currentCartCount = parseInt(cartCountBadge.textContent);
-            currentCartCount++;
-            cartCountBadge.textContent = currentCartCount;
+      // Add to cart
+      function addToCart(productId) {
+        const existingItem = cart.find((item) => item.product_id == productId);
 
-            const productCard = e.target.closest(".card");
-            const productName = productCard.querySelector(".card-title").textContent;
-            const productPrice = productCard.querySelector(".price").textContent;
-            const productImage = productCard.querySelector(".card-img-top").src;
-
-            let existingItem = document.querySelector(`.cart-item[data-product-name="${productName}"]`);
-            if (existingItem) {
-              let existingQuantity = parseInt(existingItem.dataset.quantity);
-              existingQuantity++;
-              existingItem.dataset.quantity = existingQuantity;
-              existingItem.querySelector(".cart-item-quantity").textContent = `Quantity: ${existingQuantity}`;
-              existingItem.querySelector(".cart-item-price").textContent = `Total: ${productPrice.replace('/ kg', '') * existingQuantity} / kg`;
-            } else {
-              const newCartItem = document.createElement("div");
-              newCartItem.classList.add("col-12", "col-sm-6", "col-md-3", "cart-item");
-              newCartItem.dataset.productName = productName;
-              newCartItem.dataset.quantity = 1;
-
-              newCartItem.innerHTML = `
-                <div class="card">
-                  <div class="position-relative">
-                    <img src="${productImage}" class="card-img-top" alt="${productName}">
-                    <span class="tag">In Cart</span>
-                  </div>
-                  <div class="card-body">
-                    <h5 class="card-title">${productName}</h5>
-                    <p class="card-text cart-item-quantity">Quantity: 1</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <span class="price cart-item-price">${productPrice}</span>
-                    </div>
-                  </div>
-                </div>
-              `;
-              cartItemsContainer.appendChild(newCartItem);
-            }
-
-            updateCartDisplay();
-
-            const originalText = btn.textContent;
-            btn.textContent = "Added!";
-            btn.style.backgroundColor = "#28a745";
-            btn.style.color = "white";
-
-            setTimeout(() => {
-              btn.textContent = originalText;
-              btn.style.backgroundColor = "white";
-              btn.style.color = "#28a745";
-            }, 2000);
+        if (existingItem) {
+          existingItem.quantity += 1;
+        } else {
+          cart.push({
+            product_id: productId,
+            quantity: 1,
           });
-        });
-        updateCartDisplay(); 
+        }
+
+        updateCartDisplay();
+        saveCartToStorage();
+
+        // Visual feedback
+        const button = event.target;
+        if (button) {
+          const originalText = button.textContent;
+          button.textContent = "Added!";
+          button.style.backgroundColor = "#28a745";
+          button.style.color = "white";
+
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.style.backgroundColor = "white";
+            button.style.color = "#28a745";
+          }, 1000);
+        }
+      }
+
+      // Update cart display
+      function updateCartDisplay() {
+        const totalQuantity = cart.reduce(
+          (total, item) => total + item.quantity,
+          0
+        );
+        cartCount.textContent = totalQuantity;
+
+        if (cart.length === 0) {
+          cartItems.innerHTML = `
+            <div class="text-center text-muted mt-5">
+              <i class="fas fa-shopping-cart fa-3x mb-3"></i>
+              <p>Your cart is empty</p>
+            </div>
+          `;
+          return;
+        }
+
+        const cartHTML = cart
+          .map((item) => {
+            const product = products.find((p) => p.id == item.product_id);
+            if (!product) return "";
+
+            return `
+              <div class="cart-item">
+                <div class="d-flex align-items-center justify-content-center" style="width:50px;height:50px;background:#f0f0f0;border-radius:8px;font-size:1.5rem;">
+                  ${product.icon}
+                </div>
+                <div class="cart-item-name">${product.name}</div>
+                <div class="cart-item-price">$${(
+                  product.price * item.quantity
+                ).toFixed(2)}</div>
+                <div class="quantity-controls">
+                  <button class="quantity-btn" onclick="changeQuantity(${
+                    product.id
+                  }, 'minus')">-</button>
+                  <span class="quantity-display">${item.quantity}</span>
+                  <button class="quantity-btn" onclick="changeQuantity(${
+                    product.id
+                  }, 'plus')">+</button>
+                </div>
+              </div>
+            `;
+          })
+          .join("");
+
+        cartItems.innerHTML = cartHTML;
+      }
+
+      // Change quantity
+      function changeQuantity(productId, type) {
+        const itemIndex = cart.findIndex(
+          (item) => item.product_id == productId
+        );
+
+        if (itemIndex >= 0) {
+          if (type === "plus") {
+            cart[itemIndex].quantity += 1;
+          } else {
+            cart[itemIndex].quantity -= 1;
+            if (cart[itemIndex].quantity <= 0) {
+              cart.splice(itemIndex, 1);
+            }
+          }
+          updateCartDisplay();
+          saveCartToStorage();
+        }
+      }
+
+      // Storage functions
+      function saveCartToStorage() {
+        localStorage.setItem("cart", JSON.stringify(cart));
+      }
+
+      function loadCartFromStorage() {
+        const savedCart = localStorage.getItem("cart");
+        if (savedCart) {
+          cart = JSON.parse(savedCart);
+          updateCartDisplay();
+        }
+      }
+
+      // Checkout function
+      document.getElementById("checkout").addEventListener("click", () => {
+        if (cart.length === 0) {
+          alert("Your cart is empty!");
+          return;
+        }
+
+        const total = cart.reduce((sum, item) => {
+          const product = products.find((p) => p.id == item.product_id);
+          return sum + product.price * item.quantity;
+        }, 0);
+
+        alert(`Thank you for your order!\nTotal: $${total.toFixed(2)}`);
+        cart = [];
+        updateCartDisplay();
+        saveCartToStorage();
+        toggleCart();
       });
+
+      // Initialize the app
+      initApp();
     </script>
-    <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    let cart = JSON.parse(localStorage.getItem("cart")) || [];
-    let total = cart.reduce((sum, item) => sum + item.quantity, 0);
-    const cartCountBadge = document.getElementById('cart-count');
-    if (cartCountBadge) {
-      cartCountBadge.textContent = total;
-    }
-  });
-</script>
   </body>
 </html>
