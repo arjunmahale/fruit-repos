@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fresh Fruits Shop</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 50px 20px;
+        }
+
+        .filterBox {
+            width: 300px;
+            padding: 20px;
+            margin-right: 30px;
+        }
+
+        .product {
+            flex-grow: 1;
+        }
+
+        .category_list {
+            margin-top: 20px;
+        }
+
+        .category_list div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category_list a {
+            text-decoration: none;
+            color: #495057;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .category_list a:hover {
+            color: #81c408;
+        }
+
+        .category_list .fa-apple-whole {
+            color: #81c408;
+            margin-right: 10px;
+        }
+
+        .category_count {
+            color: #6c757d;
+        }
+
+        .search-input {
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+        
+        .search-button {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #81c408;
+            border-color: #81c408;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main">
+    <div class="filterBox">
+        <h2 class="mb-4">Fresh fruits shop</h2>
+        <div class="input-group mb-4">
+            <input type="text" class="form-control search-input" placeholder="keywords">
+            <button class="btn search-button" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+        
+        <h3>Categories</h3>
+        <div class="category_list">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Apples</a>
+                <span class="category_count">(3)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Oranges</a>
+                <span class="category_count">(5)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Strawberry</a>
+                <span class="category_count">(2)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Banana</a>
+                <span class="category_count">(8)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Pumpkin</a>
+                <span class="category_count">(5)</span>
+            </div>
+        </div>
+    </div>
+    <div class="product">
+        </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    
+</script>
+</body>
+</html>

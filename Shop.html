@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruitables - Shop</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+        * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --primary-bg: #495449;
+        --secondary-bg: #3c423c;
+        --text-color: #b0b0b0;
+        --heading-color: #ffffff;
+        --link-color: #ffffff;
+        --btn-bg: #90b355;
+        --btn-text: #ffffff;
+        --social-bg: #5f665f;
+        --social-link: #ffffff;
+      }
+
+      .sec1 {
+        height: 100px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      .sec1.sticky {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand {
+        font-size: 2.5rem;
+        color: #81c408 !important;
+      }
+      .nav-link {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #6c757d !important;
+        margin-right: 15px;
+      }
+
+      .nav-link.active {
+        color: #81c408 !important;
+      }
+
+      .icon-btn {
+        border: 1px solid #ffb524;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #81c408;
+        position: relative;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      .cart-icon {
+        background-color: #81c408;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #ffb524;
+        color: white;
+        border-radius: 50%;
+        padding: 0 6px;
+        font-size: 0.75rem;
+      }
+
+      .header {
+        height: 200px;
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url(cart-page-header-img.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header h1 {
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+      h1 {
+        text-align: center;
+      }
+      .main {
+        height: 1000px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin: auto;
+      }
+      .filterBox {
+        flex-basis: 23%;
+      }
+      .product {
+        flex-basis: 75%;
+      }
+      .hidden {
+        display: none !important;
+      }
+      .footer {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        padding: 50px 0;
+      }
+
+      .social-icons a {
+        color: var(--social-link);
+        background-color: var(--social-bg);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        text-decoration: none;
+      }
+
+      .footer h4 {
+        color: var(--heading-color);
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .footer .btn-link {
+        color: var(--text-color);
+        text-decoration: none;
+        line-height: 2;
+      }
+
+      .payment-icons img {
+        height: 25px;
+        margin-right: 5px;
+      }
+      .category_list {
+            margin-top: 20px;
+        }
+
+        .category_list div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .category_list a {
+            text-decoration: none;
+            color: #495057;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+
+        .category_list a:hover {
+            color: #81c408;
+        }
+
+        .category_list .fa-apple-whole {
+            color: #81c408;
+            margin-right: 10px;
+        }
+
+        .category_count {
+            color: #6c757d;
+        }
+
+        .search-input {
+            border-radius: 20px;
+            padding: 10px 20px;
+        }
+        
+        .search-button {
+            border-top-right-radius: 20px;
+            border-bottom-right-radius: 20px;
+            background-color: #81c408;
+            border-color: #81c408;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sec1">
+      <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="#">Fruitables</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop_detail.html">Shop Detail</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownPages"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Pages
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Card.html">Cart</a></li>
+                  <li><a class="dropdown-item" href="Checkout.html">Checkout</a></li>
+                  <li><a class="dropdown-item" href="Testimonial.html">Testimonial</a></li>
+                  <li><a class="dropdown-item" href="#">404 Page</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex align-items-center">
+            <a href="#" class="icon-btn me-2">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="Card.html" class="cart-icon position-relative me-2">
+              <i class="fa-solid fa-shopping-bag"></i>
+              <span class="cart-badge" id="cart-count"></span>
+            </a>
+            <a href="#" class="cart-icon">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="header">
+      <h1>Shop</h1>
+    </div>
+
+    <h1 style="margin-top: 50px;">Fresh fruits shop</h1>
+    <div class="main">
+      <div class="filterBox">
+        <h2 class="mb-4">Fresh fruits shop</h2>
+        <div class="input-group mb-4">
+            <input type="text" class="form-control search-input" placeholder="keywords">
+            <button class="btn search-button" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+        </div>
+
+        <h3>Categories</h3>
+        <div class="category_list">
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Apples</a>
+                <span class="category_count">(3)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Oranges</a>
+                <span class="category_count">(5)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Strawberry</a>
+                <span class="category_count">(2)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Banana</a>
+                <span class="category_count">(8)</span>
+            </div>
+            <div class="d-flex justify-content-between align-items-center">
+                <a href="#"><i class="fas fa-apple-whole me-2"></i>Pumpkin</a>
+                <span class="category_count">(5)</span>
+            </div>
+        </div>
+        <br><br>
+        <h2>Additional</h2>
+        <div class="category_list">
+          <label>
+            <input type="checkbox" class="filter-checkbox" value="Organic" />Organic
+          </label><br>
+          <label>
+            <input type="checkbox" class="filter-checkbox" value="Fresh" />Fresh
+          </label><br>
+          <label>
+            <input type="checkbox" class="filter-checkbox" value="Sales" />Sales
+          </label><br>
+          <label>
+            <input type="checkbox" class="filter-checkbox" value="Discount" />Discount
+          </label><br>
+          <label>
+            <input type="checkbox" class="filter-checkbox" value="Expired" />Expired
+          </label><br>
+        </div>
+      </div>
+      <div class="product">
+        <div class="container my-5">
+          <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4" id="product-container">
+            <div class="col filter-item" data-category="Organic">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="grapes.jpg" class="card-img-top" alt="Grapes" />
+                  <span class="badge badge-fruits">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Grapes</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Sales">
+              <div class="card h-100 shadow rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="brocali.jpg" class="card-img-top" alt="Broccoli" />
+                  <span class="badge badge-fruits">Vegetables</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Broccoli</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Expired">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="rasberies.jpg" class="card-img-top" alt="Raspberries" />
+                  <span class="badge badge-fruits bg-danger">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Raspberries</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Fresh">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="apricots.jpg" class="card-img-top" alt="Apricots" />
+                  <span class="badge badge-fruits">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Apricots</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Fresh">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="banana.jpg" class="card-img-top" alt="Banana" />
+                  <span class="badge badge-fruits">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Banana</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Sales">
+              <div class="card h-100 shadow rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="orange.jpg" class="card-img-top" alt="Orange" />
+                  <span class="badge badge-fruits">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Orange</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Discount">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="rasberies.jpg" class="card-img-top" alt="Raspberries" />
+                  <span class="badge badge-fruits bg-danger">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Raspberries</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col filter-item" data-category="Expired">
+              <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                <div class="position-relative">
+                  <img src="grapes.jpg" class="card-img-top" alt="Grapes" />
+                  <span class="badge badge-fruits">Fruits</span>
+                </div>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title text-center">Grapes</h5>
+                  <p class="card-text text-center text-muted">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit sed do eiusmod te incididunt
+                  </p>
+                  <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                    <span class="fs-5 fw-bold product-price">$4.99 / kg</span>
+                    <button class="btn btn-add-to-cart rounded-pill">Add to cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container my-5" id="cart-items-display">
+      <h2 class="mb-4">Your Shopping Cart</h2>
+      <div class="row g-4" id="cart-container">
+        <p id="empty-cart-message">Your cart is empty.</p>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <div class="container-fluid py-5">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6 d-flex align-items-center">
+              <div class="logo">
+                <h1 class="text-info display-6 mb-0">Fruitables</h1>
+                <p class="text-white-50">Fresh products</p>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
+            >
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control rounded-pill border-0 py-3 ps-4 pe-5"
+                  placeholder="Your Email"
+                />
+                <button
+                  type="button"
+                  class="btn text-white py-3 px-4"
+                  style="
+                    background-color: #90b355;
+                    border-radius: 0 50px 50px 0;
+                    margin-left: -50px;
+                    z-index: 1;
+                  "
+                >
+                  Subscribe Now
+                </button>
+              </div>
+            </div>
+            <div
+              class="col-lg-3 col-md-6 d-flex justify-content-end align-items-center"
+            >
+              <div class="d-flex social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4" style="border-color: #5f665f" />
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="text-white mb-4">Why People Like Us!</h4>
+                <p>
+                  Typesetting, remaining essentially unchanged. It was
+                  popularised in the 1960s with the like Aldus PageMaker
+                  including of Lorem Ipsum.
+                </p>
+                <a
+                  href="#"
+                  class="btn border-secondary rounded-pill text-white py-3 px-5 mt-4"
+                  style="background-color: #90b355"
+                  >Read More</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                <h4 class="text-white mb-4">Shop Info</h4>
+                <a class="btn-link text-white-50" href="#">About Us</a>
+                <a class="btn-link text-white-50" href="#">Contact Us</a>
+                <a class="btn-link text-white-50" href="#">Privacy Policy</a>
+                <a class="btn-link text-white-50" href="#">Terms & Condition</a>
+                <a class="btn-link text-white-50" href="#">Return Policy</a>
+                <a class="btn-link text-white-50" href="#">FAQs & Help</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                <h4 class="text-white mb-4">Account</h4>
+                <a class="btn-link text-white-50" href="#">My Account</a>
+                <a class="btn-link text-white-50" href="#">Shop details</a>
+                <a class="btn-link text-white-50" href="#">Shopping Cart</a>
+                <a class="btn-link text-white-50" href="#">Wishlist</a>
+                <a class="btn-link text-white-50" href="#">Order History</a>
+                <a class="btn-link text-white-50" href="#"
+                  >International Orders</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="text-white mb-4">Contact</h4>
+                <p>Address: 1429 Netus Rd, NY 48247</p>
+                <p>Email: Example@gmail.com</p>
+                <p>Phone: +0123 4567 8910</p>
+                <p class="mb-3">Payment Accepted</p>
+                <div class="payment-icons">
+                  <span class="badge bg-primary me-1">VISA</span>
+                  <span class="badge bg-warning me-1">MC</span>
+                  <span class="badge bg-info me-1">AMEX</span>
+                  <span class="badge bg-success">PayPal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Smooth scrolling for navbar
+window.addEventListener("scroll", () => {
+    const navbar = document.querySelector(".sec1");
+    const stickyPoint = navbar.offsetTop; 
+
+    if (window.scrollY > stickyPoint) {
+        navbar.classList.add("sticky");
+    } else {
+        navbar.classList.remove("sticky");
+    }
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const filterCheckboxes = document.querySelectorAll('.filter-checkbox');
+    const productItems = document.querySelectorAll('.filter-item');
+    const cartCountBadge = document.getElementById('cart-count');
+    const addToCartButtons = document.querySelectorAll('.btn-add-to-cart');
+    const cartContainer = document.getElementById('cart-container');
+    const emptyCartMessage = document.getElementById('empty-cart-message');
+    const searchInput = document.querySelector('.search-input');
+    const searchButton = document.querySelector('.search-button');
+
+    // --- Product Filtering Logic ---
+    filterCheckboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', () => {
+            filterProducts();
+        });
+    });
+
+    // --- Search Functionality ---
+    searchButton.addEventListener('click', () => {
+        filterProducts();
+    });
+
+    searchInput.addEventListener('input', () => {
+        filterProducts();
+    });
+
+    function filterProducts() {
+        const activeFilters = [];
+        filterCheckboxes.forEach(cb => {
+            if (cb.checked) {
+                activeFilters.push(cb.value);
+            }
+        });
+
+        const searchTerm = searchInput.value.toLowerCase().trim();
+
+        productItems.forEach(item => {
+            const itemCategory = item.getAttribute('data-category');
+            const productName = item.querySelector('.card-title').textContent.toLowerCase();
+            
+            const matchesFilter = activeFilters.length === 0 || activeFilters.includes(itemCategory);
+            const matchesSearch = productName.includes(searchTerm);
+
+            if (matchesFilter && matchesSearch) {
+                item.style.display = 'block';
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // --- "Add to Cart" Functionality with localStorage ---
+    function updateCartCount() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+        cartCountBadge.textContent = total;
+    }
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            const card = e.target.closest('.card');
+            const productName = card.querySelector('.card-title').textContent;
+            const productPriceText = card.querySelector('.product-price').textContent;
+            const productImageSrc = card.querySelector('.card-img-top').src;
+
+            // Get cart from localStorage
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            let existing = cart.find(item => item.name === productName);
+
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({
+                    name: productName,
+                    price: productPriceText,
+                    img: productImageSrc,
+                    quantity: 1
+                });
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart));
+            updateCartCount();
+
+            // Visual feedback for the button
+            const originalText = button.textContent;
+            const originalColor = window.getComputedStyle(button).backgroundColor;
+            button.textContent = "Added!";
+            button.style.backgroundColor = '#28a745';
+            button.style.color = '#fff';
+
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.backgroundColor = originalColor;
+                button.style.color = '';
+            }, 2000);
+        });
+    });
+
+    // --- Display Cart Items from localStorage ---
+    function renderCart() {
+        let cart = JSON.parse(localStorage.getItem("cart")) || [];
+        cartContainer.innerHTML = '';
+        if (cart.length === 0) {
+            emptyCartMessage.style.display = 'block';
+            cartContainer.appendChild(emptyCartMessage);
+        } else {
+            emptyCartMessage.style.display = 'none';
+            cart.forEach(item => {
+                const newCartItem = document.createElement('div');
+                newCartItem.classList.add('col-12', 'col-sm-6', 'col-md-3', 'cart-item');
+                newCartItem.setAttribute('data-product-name', item.name);
+                newCartItem.innerHTML = `
+                    <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+                        <div class="position-relative">
+                            <img src="${item.img}" class="card-img-top" alt="${item.name}">
+                            <span class="badge badge-success tag">In Cart</span>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title text-center">${item.name}</h5>
+                            <p class="card-text text-center text-muted">Quantity: <span class="product-quantity">${item.quantity}</span></p>
+                            <div class="d-flex justify-content-between align-items-center mt-auto pt-3">
+                                <span class="fs-5 fw-bold product-price">${item.price}</span>
+                                <button class="btn btn-danger btn-sm remove-from-cart">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                cartContainer.appendChild(newCartItem);
+            });
+        }
+    }
+
+    // --- Remove item from cart and localStorage ---
+    cartContainer.addEventListener('click', (e) => {
+        if (e.target.classList.contains('remove-from-cart')) {
+            const cartItem = e.target.closest('.cart-item');
+            const productName = cartItem.getAttribute('data-product-name');
+            let cart = JSON.parse(localStorage.getItem("cart")) || [];
+            cart = cart.filter(item => item.name !== productName);
+            localStorage.setItem("cart", JSON.stringify(cart));
+            renderCart();
+            updateCartCount();
+        }
+    });
+
+    // Initial load
+    updateCartCount();
+    renderCart();
+});
+</script>
+    // Initial load
+</body>
+</html>

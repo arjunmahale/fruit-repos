@@ -1,0 +1,790 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fruitables - Shop Detail</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+
+      :root {
+        --primary-bg: #495449;
+        --secondary-bg: #3c423c;
+        --text-color: #b0b0b0;
+        --heading-color: #ffffff;
+        --link-color: #ffffff;
+        --btn-bg: #90b355;
+        --btn-text: #ffffff;
+        --social-bg: #5f665f;
+        --social-link: #ffffff;
+      }
+
+      .sec1 {
+        height: 100px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      .sec1.sticky {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand {
+        font-size: 2.5rem;
+        color: #81c408 !important;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #6c757d !important;
+        margin-right: 15px;
+      }
+
+      .nav-link.active {
+        color: #81c408 !important;
+      }
+
+      .icon-btn {
+        border: 1px solid #ffb524;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #81c408;
+        position: relative;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      .cart-icon {
+        background-color: #81c408;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin-left: 10px;
+        text-decoration: none;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #ffb524;
+        color: white;
+        border-radius: 50%;
+        padding: 0 6px;
+        font-size: 0.75rem;
+      }
+
+      .header {
+        height: 200px;
+        width: 100%;
+        background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+          url(cart-page-header-img.jpg);
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .header h1 {
+        color: white;
+        font-size: 50px;
+        font-weight: bold;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+      }
+
+      .product-card {
+        max-width: 850px;
+      }
+
+      .star-rating .bi-star-fill {
+        color: #ffc107;
+      }
+
+      .quantity-control .btn {
+        background-color: #f8f9fa;
+        border: 1px solid #dee2e6;
+        width: 35px;
+        height: 35px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .add-to-cart-btn {
+        background-color: #28a745;
+        color: white;
+        border: none;
+        padding: 12px;
+        border-radius: 8px;
+        transition: background-color 0.3s;
+      }
+
+      .add-to-cart-btn:hover {
+        background-color: #218838;
+      }
+
+      .category-text {
+        color: #6c757d;
+      }
+
+      .nav-tabs .nav-link.active {
+        color: #ffc107 !important;
+        border-bottom: 2px solid #ffc107;
+        background: none;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+      }
+
+      .table-striped > tbody > tr:nth-of-type(odd) {
+        background-color: #f8f9fa;
+      }
+
+      .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        overflow: hidden;
+        border: 2px solid #28a745;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+      }
+
+      .card-img-top {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        height: 200px;
+        object-fit: cover;
+      }
+
+      .tag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #28a745;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #343a40;
+      }
+
+      .card-text {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+
+      .price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #28a745;
+      }
+
+      .btn-add-to-cart {
+        background-color: white;
+        color: #28a745;
+        border: 2px solid #28a745;
+        border-radius: 25px;
+        font-weight: bold;
+        padding: 8px 16px;
+        text-decoration: none;
+        transition: background-color 0.2s, color 0.2s;
+      }
+
+      .btn-add-to-cart:hover {
+        background-color: #28a745;
+        color: white;
+      }
+
+      .nav-arrows .btn {
+        background-color: white;
+        color: #28a745;
+        border: 1px solid #28a745;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.25rem;
+        margin-left: 10px;
+      }
+
+      .footer {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        padding: 50px 0;
+      }
+
+      .social-icons a {
+        color: var(--social-link);
+        background-color: var(--social-bg);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        text-decoration: none;
+      }
+
+      .footer h4 {
+        color: var(--heading-color);
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .footer .btn-link {
+        color: var(--text-color);
+        text-decoration: none;
+        line-height: 2;
+      }
+
+      .payment-icons img {
+        height: 25px;
+        margin-right: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sec1">
+      <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="#">Fruitables</a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Shop.html">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop_detail.html">Shop Detail</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownPages"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                >
+                  Pages
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="Card.html">Cart</a></li>
+                  <li><a class="dropdown-item" href="Checkout.html">Checkout</a></li>
+                  <li><a class="dropdown-item" href="Testimonial.html">Testimonial</a></li>
+                  <li><a class="dropdown-item" href="#">404 Page</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex align-items-center">
+            <a href="#" class="icon-btn me-2">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="Card.html" class="cart-icon position-relative me-2">
+              <i class="fa-solid fa-shopping-bag"></i>
+              <span class="cart-badge" id="cart-count"></span>
+            </a>
+            <a href="#" class="cart-icon">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="header">
+      <h1>Shop Detail</h1>
+    </div>
+
+    <div class="container py-5">
+      <div class="card product-card mx-auto shadow-sm">
+        <div class="row g-0">
+          <div class="col-md-6">
+            <div
+              style="
+                height: 400px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border-radius: 8px 0 0 8px;
+              "
+            >
+              <img src="brocali.jpg" class="w-100" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="card-body p-4">
+              <h2 class="card-title" id="product-name">Broccoli</h2>
+              <p class="card-text category-text">Category: Vegetables</p>
+              <h3 class="my-3 text-success" id="product-price">$3.35</h3>
+              <div class="d-flex align-items-center mb-3">
+                <div class="star-rating me-2">
+                  <span style="color: #ffc107">★★★★★</span>
+                </div>
+              </div>
+              <p class="card-text">
+                The generated Lorem Ipsum is therefore always free from
+                repetition injected humour, or non-characteristic words etc.
+              </p>
+              <p class="card-text">
+                Susp endisse ultricies nisi vel quam suscipit. Sabertooth
+                peacock flounder; chain pickerel hatchetfish, pencilfish
+                snailfish
+              </p>
+              <div class="d-flex align-items-center mb-3 quantity-control">
+                <button class="btn btn-sm" id="decrease-quantity">-</button>
+                <span class="mx-3 fw-bold" id="product-quantity">1</span>
+                <button class="btn btn-sm" id="increase-quantity">+</button>
+              </div>
+              <button
+                class="btn add-to-cart-btn d-flex align-items-center justify-content-center w-100"
+                id="add-to-cart-btn"
+              >
+                <i class="fa-solid fa-shopping-cart me-2"></i>
+                <span>Add to cart</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container py-5" id="cart-page-section" style="display: none">
+      <h2>Your Cart</h2>
+      <div class="row g-4" id="cart-items-container">
+        </div>
+    </div>
+    <div class="container py-5" id="empty-cart-message">
+      <p>Your cart is empty. Add some products to see them here!</p>
+    </div>
+
+    <hr />
+
+    <div class="container py-5">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2>Related Products</h2>
+        <div class="nav-arrows">
+          <button class="btn">&larr;</button>
+          <button class="btn">&rarr;</button>
+        </div>
+      </div>
+      <div class="row g-4" id="related-products-container">
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card">
+            <div class="position-relative">
+              <img src="parsely.jpg" class="card-img-top w-100" />
+              <span class="tag">Vegetable</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Parsley</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod te incididunt
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">$4.99 / kg</span>
+                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card">
+            <div class="position-relative">
+              <img src="banana.jpg" class="card-img-top w-100" />
+              <span class="tag">Fruit</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Banana</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod te incididunt
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">$7.99 / kg</span>
+                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card">
+            <div class="position-relative">
+              <img src="bell paper.jpg" class="card-img-top w-100" />
+              <span class="tag">Vegetable</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Bell Pepper</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod te incididunt
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">$7.99 / kg</span>
+                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-sm-6 col-md-3">
+          <div class="card">
+            <div class="position-relative">
+              <img src="potato.jpg" class="card-img-top w-100" />
+              <span class="tag">Vegetable</span>
+            </div>
+            <div class="card-body">
+              <h5 class="card-title">Potatoes</h5>
+              <p class="card-text">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                eiusmod te incididunt
+              </p>
+              <div class="d-flex justify-content-between align-items-center">
+                <span class="price">$7.99 / kg</span>
+                <a href="#" class="btn btn-add-to-cart">Add to cart</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <hr />
+
+    <footer class="footer">
+      <div class="container-fluid py-5">
+        <div class="container">
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6 d-flex align-items-center">
+              <div class="logo">
+                <h1 class="text-info display-6 mb-0">Fruitables</h1>
+                <p class="text-white-50">Fresh products</p>
+              </div>
+            </div>
+            <div
+              class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
+            >
+              <div class="input-group">
+                <input
+                  type="email"
+                  class="form-control rounded-pill border-0 py-3 ps-4 pe-5"
+                  placeholder="Your Email"
+                />
+                <button
+                  type="button"
+                  class="btn text-white py-3 px-4"
+                  style="
+                    background-color: #90b355;
+                    border-radius: 0 50px 50px 0;
+                    margin-left: -50px;
+                    z-index: 1;
+                  "
+                >
+                  Subscribe Now
+                </button>
+              </div>
+            </div>
+            <div
+              class="col-lg-3 col-md-6 d-flex justify-content-end align-items-center"
+            >
+              <div class="d-flex social-icons">
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+          <hr class="my-4" style="border-color: #5f665f" />
+          <div class="row g-5">
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="text-white mb-4">Why People Like Us!</h4>
+                <p>
+                  Typesetting, remaining essentially unchanged. It was popularised
+                  in the 1960s with the like Aldus PageMaker including of Lorem
+                  Ipsum.
+                </p>
+                <a
+                  href="#"
+                  class="btn border-secondary rounded-pill text-white py-3 px-5 mt-4"
+                  style="background-color: #90b355"
+                  >Read More</a
+                >
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                <h4 class="text-white mb-4">Shop Info</h4>
+                <a class="btn-link text-white-50" href="#">About Us</a>
+                <a class="btn-link text-white-50" href="#">Contact Us</a>
+                <a class="btn-link text-white-50" href="#">Privacy Policy</a>
+                <a class="btn-link text-white-50" href="#">Terms & Condition</a>
+                <a class="btn-link text-white-50" href="#">Return Policy</a>
+                <a class="btn-link text-white-50" href="#">FAQs & Help</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="d-flex flex-column text-start footer-item">
+                <h4 class="text-white mb-4">Account</h4>
+                <a class="btn-link text-white-50" href="#">My Account</a>
+                <a class="btn-link text-white-50" href="#">Shop details</a>
+                <a class="btn-link text-white-50" href="#">Shopping Cart</a>
+                <a class="btn-link text-white-50" href="#">Wishlist</a>
+                <a class="btn-link text-white-50" href="#">Order History</a>
+                <a class="btn-link text-white-50" href="#">International Orders</a>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+              <div class="footer-item">
+                <h4 class="text-white mb-4">Contact</h4>
+                <p>Address: 1429 Netus Rd, NY 48247</p>
+                <p>Email: Example@gmail.com</p>
+                <p>Phone: +0123 4567 8910</p>
+                <p class="mb-3">Payment Accepted</p>
+                <div class="payment-icons">
+                  <span class="badge bg-primary me-1">VISA</span>
+                  <span class="badge bg-warning me-1">MC</span>
+                  <span class="badge bg-info me-1">AMEX</span>
+                  <span class="badge bg-success">PayPal</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <div class="container-fluid py-4" style="background-color: #3c423c">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-white-50"
+          >
+            &copy; <a class="text-info" href="#">Your Site Name</a>, All rights
+            reserved.
+          </div>
+          <div class="col-md-6 text-center text-md-end text-white-50">
+            Designed By
+            <a class="border-bottom" href="#">Aniket Wani</a> Distributed By
+            <a class="border-bottom" href="#">A2Z IT HUB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      //navbar
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".sec1");
+        const stickyPoint = navbar.offsetTop;
+        if (window.scrollY > stickyPoint) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+
+      
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const increaseBtn = document.getElementById("increase-quantity");
+        const decreaseBtn = document.getElementById("decrease-quantity");
+        const quantitySpan = document.getElementById("product-quantity");
+        const addToCartBtn = document.getElementById("add-to-cart-btn");
+        const cartCountBadge = document.getElementById("cart-count");
+        const cartItemsContainer = document.getElementById("cart-items-container");
+        const emptyCartMessage = document.getElementById("empty-cart-message");
+
+        function updateCartDisplay() {
+          if (cartItemsContainer.children.length > 0) {
+            document.getElementById("cart-page-section").style.display = "block";
+            emptyCartMessage.style.display = "none";
+          } else {
+            document.getElementById("cart-page-section").style.display = "none";
+            emptyCartMessage.style.display = "block";
+          }
+        }
+
+        increaseBtn.addEventListener("click", () => {
+          let currentQuantity = parseInt(quantitySpan.textContent);
+          currentQuantity++;
+          quantitySpan.textContent = currentQuantity;
+        });
+
+        decreaseBtn.addEventListener("click", () => {
+          let currentQuantity = parseInt(quantitySpan.textContent);
+          if (currentQuantity > 1) {
+            currentQuantity--;
+            quantitySpan.textContent = currentQuantity;
+          }
+        });
+
+        addToCartBtn.addEventListener("click", () => {
+          const quantityToAdd = parseInt(quantitySpan.textContent);
+          let currentCartCount = parseInt(cartCountBadge.textContent);
+          currentCartCount += quantityToAdd;
+          cartCountBadge.textContent = currentCartCount;
+
+          const productName = document.getElementById("product-name").textContent;
+          const productPrice = document.getElementById("product-price").textContent;
+          const productImage = document.querySelector(".product-card img").src;
+
+          let existingItem = document.querySelector(`.cart-item[data-product-name="${productName}"]`);
+          if (existingItem) {
+            let existingQuantity = parseInt(existingItem.dataset.quantity);
+            existingQuantity += quantityToAdd;
+            existingItem.dataset.quantity = existingQuantity;
+            existingItem.querySelector(".cart-item-quantity").textContent = `Quantity: ${existingQuantity}`;
+            existingItem.querySelector(".cart-item-price").textContent = `Total: $${(parseFloat(productPrice.substring(1)) * existingQuantity).toFixed(2)}`;
+          } else {
+            const newCartItem = document.createElement("div");
+            newCartItem.classList.add("col-12", "col-sm-6", "col-md-3", "cart-item");
+            newCartItem.dataset.productName = productName;
+            newCartItem.dataset.quantity = quantityToAdd;
+
+            newCartItem.innerHTML = `
+              <div class="card">
+                <div class="position-relative">
+                  <img src="${productImage}" class="card-img-top" alt="${productName}">
+                  <span class="tag">In Cart</span>
+                </div>
+                <div class="card-body">
+                  <h5 class="card-title">${productName}</h5>
+                  <p class="card-text cart-item-quantity">Quantity: ${quantityToAdd}</p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <span class="price cart-item-price">Total: $${(parseFloat(productPrice.substring(1)) * quantityToAdd).toFixed(2)}</span>
+                  </div>
+                </div>
+              </div>
+            `;
+            cartItemsContainer.appendChild(newCartItem);
+          }
+          
+          updateCartDisplay();
+
+          addToCartBtn.innerHTML = '<i class="fa-solid fa-check me-2"></i>Added!';
+          addToCartBtn.style.backgroundColor = "#218838";
+          setTimeout(() => {
+            addToCartBtn.innerHTML = '<i class="fa-solid fa-shopping-cart me-2"></i><span>Add to cart</span>';
+            addToCartBtn.style.backgroundColor = "#28A745";
+          }, 2000);
+        });
+
+        document.querySelectorAll(".btn-add-to-cart").forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            e.preventDefault();
+            let currentCartCount = parseInt(cartCountBadge.textContent);
+            currentCartCount++;
+            cartCountBadge.textContent = currentCartCount;
+
+            const productCard = e.target.closest(".card");
+            const productName = productCard.querySelector(".card-title").textContent;
+            const productPrice = productCard.querySelector(".price").textContent;
+            const productImage = productCard.querySelector(".card-img-top").src;
+
+            let existingItem = document.querySelector(`.cart-item[data-product-name="${productName}"]`);
+            if (existingItem) {
+              let existingQuantity = parseInt(existingItem.dataset.quantity);
+              existingQuantity++;
+              existingItem.dataset.quantity = existingQuantity;
+              existingItem.querySelector(".cart-item-quantity").textContent = `Quantity: ${existingQuantity}`;
+              existingItem.querySelector(".cart-item-price").textContent = `Total: ${productPrice.replace('/ kg', '') * existingQuantity} / kg`;
+            } else {
+              const newCartItem = document.createElement("div");
+              newCartItem.classList.add("col-12", "col-sm-6", "col-md-3", "cart-item");
+              newCartItem.dataset.productName = productName;
+              newCartItem.dataset.quantity = 1;
+
+              newCartItem.innerHTML = `
+                <div class="card">
+                  <div class="position-relative">
+                    <img src="${productImage}" class="card-img-top" alt="${productName}">
+                    <span class="tag">In Cart</span>
+                  </div>
+                  <div class="card-body">
+                    <h5 class="card-title">${productName}</h5>
+                    <p class="card-text cart-item-quantity">Quantity: 1</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                      <span class="price cart-item-price">${productPrice}</span>
+                    </div>
+                  </div>
+                </div>
+              `;
+              cartItemsContainer.appendChild(newCartItem);
+            }
+
+            updateCartDisplay();
+
+            const originalText = btn.textContent;
+            btn.textContent = "Added!";
+            btn.style.backgroundColor = "#28a745";
+            btn.style.color = "white";
+
+            setTimeout(() => {
+              btn.textContent = originalText;
+              btn.style.backgroundColor = "white";
+              btn.style.color = "#28a745";
+            }, 2000);
+          });
+        });
+        updateCartDisplay(); 
+      });
+    </script>
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountBadge = document.getElementById('cart-count');
+    if (cartCountBadge) {
+      cartCountBadge.textContent = total;
+    }
+  });
+</script>
+  </body>
+</html>

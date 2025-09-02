@@ -1,0 +1,1743 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr"
+      crossorigin="anonymous"
+    />
+    <!-- Font Awesome 5 CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        scroll-behavior: smooth;
+      }
+      .sec1 {
+        height: 100px;
+        width: 100%;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      .sec1.sticky {
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .navbar-brand {
+        font-size: 2.5rem;
+        color: #81c408 !important;
+      }
+
+      .nav-link {
+        font-size: 1.1rem;
+        font-weight: 500;
+        color: #6c757d !important;
+        margin-right: 15px;
+      }
+
+      .nav-link.active {
+        color: #81c408 !important;
+      }
+
+      .icon-btn {
+        border: 1px solid #ffb524;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #81c408;
+        position: relative;
+        margin-left: 10px;
+      }
+
+      .cart-icon {
+        background-color: #81c408;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        margin-left: 10px;
+      }
+
+      .cart-badge {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        background-color: #ffb524;
+        color: white;
+        border-radius: 50%;
+        padding: 0 6px;
+        font-size: 0.75rem;
+      }
+      .sec2 {
+        height: 550px;
+        width: 100%;
+        /* background-color: red; */
+        background-image: url(hero-img.jpg);
+      }
+      .free {
+        height: 300px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .feature-card {
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease-in-out;
+        cursor: pointer;
+        text-align: center;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+      }
+      .icon-wrapper {
+        background-color: #ffc107;
+        border-radius: 50%;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 100px;
+        height: 100px;
+        margin-bottom: 15px;
+      }
+      .icon {
+        color: white;
+        font-size: 48px;
+      }
+      .feature-title {
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 5px;
+      }
+      .feature-subtitle {
+        color: #666;
+        font-size: 0.9rem;
+      }
+      .organic {
+        height: 1100px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .filter-btn {
+        /* Default button styles */
+        background-color: white;
+        color: black;
+        border: 1px solid #ccc;
+        padding: 10px 20px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-left: 70px;
+        border-radius: 10px;
+      }
+
+      .filter-btn.active {
+        background-color: orange;
+        color: white;
+      }
+      .card-img-top {
+        height: 200px;
+        object-fit: cover;
+      }
+      .card-body {
+        padding: 1.25rem;
+      }
+      .card-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+      .btn-add-to-cart {
+        border: 1px solid #ffc107;
+        color: #ffc107;
+        background-color: transparent;
+        font-weight: bold;
+      }
+      .btn-add-to-cart:hover {
+        background-color: #ffc107;
+        color: white;
+      }
+      .badge-fruits {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background-color: #ffc107;
+        color: white;
+        padding: 5px 10px;
+        font-weight: bold;
+        border-radius: 5px;
+      }
+      .nothing {
+        height: 500px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .card-custom {
+        border: none;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+      }
+      .card-img-top-custom {
+        height: 350px;
+        object-fit: cover;
+      }
+      .card-footer-custom-apple {
+        background-color: #f7b731;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .card-footer-custom-strawberry {
+        background-color: #556270;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .card-footer-custom-broccoli {
+        background-color: #92d36e;
+        text-align: center;
+        padding: 1rem 0;
+      }
+      .discount-ribbon-apple {
+        background-color: #92d36e;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+      }
+      .discount-ribbon-strawberry {
+        background-color: #dee2e6;
+        color: #556270;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+      }
+      .discount-ribbon-broccoli {
+        background-color: #f7b731;
+        color: white;
+        padding: 0.5rem 1rem;
+        font-weight: bold;
+      }
+      .fresh_vege {
+        height: 600px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .container {
+        padding: 2rem 0;
+      }
+      .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        overflow: hidden;
+        border: 2px solid #28a745;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .card-img-top {
+        border-top-left-radius: 13px;
+        border-top-right-radius: 13px;
+        /* height: 200px; */
+        object-fit: cover;
+        position: relative;
+      }
+      .tag {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #28a745;
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+      }
+      .card-body {
+        padding: 1rem;
+      }
+      .card-title {
+        font-size: 1.25rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: #343a40;
+      }
+      .card-text {
+        font-size: 0.9rem;
+        color: #6c757d;
+      }
+      .price {
+        font-size: 1.25rem;
+        font-weight: bold;
+        color: #28a745;
+      }
+      .btn-add-to-cart {
+        background-color: white;
+        color: #28a745;
+        border: 2px solid #28a745;
+        border-radius: 25px;
+        font-weight: bold;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.2s, color 0.2s;
+      }
+      .btn-add-to-cart:hover {
+        background-color: #28a745;
+        color: white;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+      }
+      .header h2 {
+        font-weight: 300;
+        color: #343a40;
+      }
+      .nav-arrows .btn {
+        background-color: white;
+        color: #28a745;
+        border: 1px solid #28a745;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.25rem;
+        margin-left: 10px;
+      }
+      .exotic {
+        height: 700px;
+        width: 100%;
+        background-color: #ffc107;
+      }
+      .hero-section {
+        background-color: #ffc107;
+        color: white;
+        padding: 50px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-content {
+        z-index: 1;
+      }
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: bold;
+        margin-left: 40px;
+      }
+      .hero-text {
+        font-size: 1.25rem;
+        margin-left: 40px;
+      }
+      .btn-buy {
+        background-color: transparent;
+        border: 2px solid white;
+        font-weight: bold;
+        padding: 10px 40px;
+        border-radius: 50px;
+        transition: all 0.3s ease;
+        margin-left: 40px;
+      }
+      .btn-buy:hover {
+        background-color: white;
+        color: #ffc107;
+      }
+      .image-container {
+        position: relative;
+        z-index: 1;
+      }
+      .price-tag {
+        background-color: white;
+        color: #333;
+        border-radius: 50%;
+        width: 150px;
+        height: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: absolute;
+        top: -20px;
+        right: -20px;
+        font-weight: bold;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .price-tag .price {
+        font-size: 2.5rem;
+        line-height: 1;
+      }
+      .price-tag .unit {
+        font-size: 1rem;
+      }
+      .top-bar {
+        /* background-color: #ffc107; */
+        height: 50px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+      }
+      .apple-image {
+        max-width: 100%;
+        height: auto;
+      }
+      .img-fluid-custom {
+        max-height: 80vh;
+      }
+      .bestseller {
+        height: 1100px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .card {
+        border: 1px solid #e0e0e0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+      }
+      .card-img-circle {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border-radius: 50%;
+        margin: auto;
+        display: block;
+      }
+      .rating .star {
+        color: #4caf50;
+        font-size: 1.25rem;
+      }
+      .add-to-cart-btn {
+        background-color: #f0f0f0;
+        color: #4caf50;
+        border: 1px solid orange;
+      }
+      .sec12 {
+        height: 400px;
+        width: 100%;
+        margin-top: 100px;
+        /* background-color: red; */
+      }
+      .card-container {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+      }
+
+      .custom-card {
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+        text-align: center;
+        padding: 2rem 1rem;
+        height: 100%;
+      }
+
+      .custom-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .custom-card .icon {
+        color: #ffc107;
+        font-size: 3rem;
+        margin-bottom: 1rem;
+      }
+
+      .custom-card .title {
+        color: #28a745;
+        font-weight: 600;
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .custom-card .number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #343a40;
+      }
+
+      .icon::before {
+        /* content: "👥"; */
+        font-size: 3rem;
+      }
+      .testimonial {
+        height: 500px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .testimonial-section {
+        padding: 50px 0;
+        background-color: #f8f9fa;
+      }
+
+      .testimonial-card {
+        background-color: #fff;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .quotation-mark {
+        color: #4caf50;
+        font-size: 3rem;
+      }
+
+      .profile-img {
+        width: 70px;
+        height: 70px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .rating .star {
+        color: #4caf50;
+      }
+
+      .arrow-btn {
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        color: #4caf50;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+
+      .testimonial-heading {
+        color: #4caf50;
+        font-weight: 500;
+      }
+
+      .client-saying {
+        color: #34495e;
+        font-weight: 700;
+      }
+
+      .divider {
+        border-top: 1px solid #ffd700;
+        margin: 20px 0;
+      }
+      .footer1 {
+        height: 700px;
+        width: 100%;
+        /* background-color: red; */
+      }
+      .footer {
+        background-color: var(--primary-bg);
+        color: var(--text-color);
+        padding: 50px 0;
+      }
+
+      .footer-logo {
+        color: var(--heading-color);
+        font-size: 2.5rem;
+        font-weight: bold;
+      }
+
+      .footer-logo span {
+        font-size: 1rem;
+        color: var(--text-color);
+        display: block;
+        font-weight: normal;
+      }
+
+      .subscribe-form .form-control {
+        border-radius: 50px 0 0 50px;
+        background-color: var(--social-bg);
+        border: 1px solid var(--social-bg);
+        color: var(--text-color);
+        padding: 10px 20px;
+      }
+
+      .subscribe-form .btn {
+        border-radius: 0 50px 50px 0;
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        border: 1px solid var(--btn-bg);
+        padding: 10px 20px;
+      }
+
+      .social-icons a {
+        color: var(--social-link);
+        background-color: var(--social-bg);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        margin: 0 5px;
+        text-decoration: none;
+      }
+
+      .footer h5 {
+        color: var(--heading-color);
+        font-weight: bold;
+        margin-bottom: 20px;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      .footer ul li a {
+        color: var(--text-color);
+        text-decoration: none;
+        line-height: 2;
+      }
+
+      .read-more-btn {
+        background-color: transparent;
+        border: 1px solid var(--btn-bg);
+        color: var(--btn-bg);
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+      }
+
+      .payment-icons img {
+        height: 25px;
+        margin-right: 5px;
+      }
+
+      .footer-bottom {
+        background-color: var(--secondary-bg);
+        color: var(--text-color);
+        padding: 20px 0;
+      }
+
+      .back-to-top {
+        width: 40px;
+        height: 40px;
+        background-color: var(--btn-bg);
+        color: var(--btn-text);
+        border-radius: 50%;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        z-index: 1000;
+      }
+
+      .back-to-top svg {
+        width: 20px;
+        height: 20px;
+        fill: var(--btn-text);
+      }
+      :root {
+        --primary-bg: #495449;
+        --secondary-bg: #3c423c;
+        --text-color: #b0b0b0;
+        --heading-color: #ffffff;
+        --link-color: #ffffff;
+        --btn-bg: #90b355;
+        --btn-text: #ffffff;
+        --social-bg: #5f665f;
+        --social-link: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- navbar -->
+    <div class="sec1">
+      <nav class="navbar navbar-expand-lg bg-light p-3 fixed-top">
+        <div class="container-fluid">
+          <a class="navbar-brand fw-bold" href="#"> Fruitables </a>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav mx-auto">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Shop.html">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="shop_detail.html">Shop Detail</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdownPages"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Pages1
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownPages">
+                  <li><a class="dropdown-item" href="Card.html">Card</a></li>
+                  <li>
+                    <a class="dropdown-item" href="Checkout.html">Checkout</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="Testimonial.html"
+                      >Testimonial</a
+                    >
+                  </li>
+                  <li><a class="dropdown-item" href="#">404 Page</a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Contact</a>
+              </li>
+            </ul>
+          </div>
+          <div class="d-flex align-items-center">
+            <a href="#" class="icon-btn me-2">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </a>
+            <a href="Card.html" class="cart-icon position-relative me-2">
+              <i class="fa-solid fa-shopping-bag"></i>
+              <span class="cart-badge" id="cart-count"></span>
+            </a>
+            <a href="#" class="cart-icon">
+              <i class="fa-solid fa-user"></i>
+            </a>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- home -->
+    <div class="sec2" style="display: flex">
+      <div id="p1" style="padding: 150px">
+        <h2 style="font-size: 30px; color: orange">100% Organic Foods</h2>
+        <br />
+        <h1 style="font-size: 60px; color: green">Organic Veggies &</h1>
+        <h1 style="font-size: 60px; color: green">Fruits Foods</h1>
+      </div>
+
+      <div
+        id="p2"
+        style="
+          height: 300px;
+          width: 30%;
+          background-color: rgb(255, 191, 0);
+          margin-top: 100px;
+        "
+      >
+        <div id="carouselExample" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="hero-img-1.png" class="w-100" alt="..." />
+            </div>
+            <div class="carousel-item">
+              <img src="hero-img-2.jpg" class="w-100" alt="..." />
+            </div>
+          </div>
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselExample"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- section 2 -->
+    <div class="free">
+      <div class="container py-5">
+        <div class="row g-4">
+          <div class="col-md-6 col-lg-3">
+            <div class="p-4 feature-card h-100">
+              <div class="icon-wrapper">
+                <i class="fas fa-car icon"></i>
+              </div>
+              <h5 class="feature-title">Free Shipping</h5>
+              <p class="feature-subtitle">Free on order over $300</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-4 feature-card h-100">
+              <div class="icon-wrapper">
+                <i class="fas fa-user-shield icon"></i>
+              </div>
+              <h5 class="feature-title">Security Payment</h5>
+              <p class="feature-subtitle">100% security payment</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-4 feature-card h-100">
+              <div class="icon-wrapper">
+                <i class="fas fa-undo-alt icon"></i>
+              </div>
+              <h5 class="feature-title">30 Day Return</h5>
+              <p class="feature-subtitle">30 day money guarantee</p>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="p-4 feature-card h-100">
+              <div class="icon-wrapper">
+                <i class="fas fa-phone-alt icon"></i>
+              </div>
+              <h5 class="feature-title">24/7 Support</h5>
+              <p class="feature-subtitle">Support every time fast</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br /><br />
+    <hr />
+
+    <!-- organic product -->
+    <div class="organic">
+      <div class="content-sec" style="display: flex">
+        <div class="og1">
+          <h1 style="margin-left: 50px">Our Organic Products</h1>
+        </div>
+        <div
+          class="og2"
+          style="margin-left: 20px; font-size: 25px; margin-top: 10px"
+        >
+          <button class="filter-btn active" data-filter="all">
+            All Products
+          </button>
+          <button class="filter-btn" data-filter="vegetables">
+            Vegetables
+          </button>
+          <button class="filter-btn" data-filter="fruits">Fruits</button>
+          <button class="filter-btn" data-filter="bread">Bread</button>
+          <button class="filter-btn" data-filter="meat">Meat</button>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col filter-item" data-category="vegetables">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="grapes.jpg" class="card-img-top" alt="Grapes" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Grapes</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="vegetables">
+            <div class="card h-100 shadow rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="brocali.jpg" class="card-img-top" alt="Grapes" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Brocali</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="bread">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="rasberies.jpg"
+                  class="card-img-top"
+                  alt="Raspberries"
+                />
+                <span class="badge badge-fruits bg-danger">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Raspberries</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="bread">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="apricots.jpg" class="card-img-top" alt="Apricots" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Apricots</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container my-5">
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+          <div class="col filter-item" data-category="meat">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="banana.jpg" class="card-img-top" alt="Banana" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Banana</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="fruits">
+            <div class="card h-100 shadow rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="orange.jpg" class="card-img-top" alt="Orange" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Orange</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="bread">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img
+                  src="rasberies.jpg"
+                  class="card-img-top"
+                  alt="Raspberries"
+                />
+                <span class="badge badge-fruits bg-danger">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Raspberries</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col filter-item" data-category="meat">
+            <div class="card h-100 shadow-sm rounded-3 overflow-hidden">
+              <div class="position-relative">
+                <img src="grapes.jpg" class="card-img-top" alt="Grapes" />
+                <span class="badge badge-fruits">Fruits</span>
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center">Grapes</h5>
+                <p class="card-text text-center text-muted">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div
+                  class="d-flex justify-content-between align-items-center mt-auto pt-3"
+                >
+                  <span class="fs-5 fw-bold">$4.99 / kg</span>
+                  <button class="btn btn-add-to-cart rounded-pill">
+                    Add to cart
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- nothing -->
+    <div class="nothing">
+      <div class="container my-5">
+        <div class="row justify-content-center">
+          <div class="col-md-4 mb-4">
+            <div class="card card-custom">
+              <img
+                src="n1.jpg"
+                class="card-img-top card-img-top-custom w-100"
+                alt="Fresh Apples"
+              />
+              <div class="card-footer card-footer-custom-apple">
+                <div class="discount-ribbon-apple">Fresh Apples</div>
+                <div class="text-white mt-2">20% OFF</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card card-custom">
+              <img
+                src="n2.jpg"
+                class="card-img-top card-img-top-custom w-100"
+                alt="Tasty Fruits"
+              />
+              <div class="card-footer card-footer-custom-strawberry">
+                <div class="discount-ribbon-strawberry">Tasty Fruits</div>
+                <div class="text-white mt-2">Free delivery</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4 mb-4">
+            <div class="card card-custom">
+              <img
+                src="n3.jpg"
+                class="card-img-top card-img-top-custom w-100"
+                alt="Exotic Vegetable"
+              />
+              <div class="card-footer card-footer-custom-broccoli">
+                <div class="discount-ribbon-broccoli">Exotic Vegetable</div>
+                <div class="text-white mt-2">Discount 30$</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- fresh vegitable -->
+    <div class="fresh_vege">
+      <div class="container">
+        <div class="header">
+          <h2>Fresh Organic Vegetables</h2>
+          <div class="nav-arrows">
+            <button class="btn">&rarr;</button>
+            <button class="btn">&larr;</button>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card">
+              <div class="position-relative">
+                <img src="parsely.jpg" class="card-img-top" alt="Tomatoes" />
+                <span class="tag">Vegetable</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Parsley</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$4.99 / kg</span>
+                  <a href="#" class="btn btn-add-to-cart"> Add to cart </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card">
+              <div class="position-relative">
+                <img src="banana.jpg" class="card-img-top" alt="Banana" />
+                <span class="tag">Vegetable</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Banana</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$7.99 / kg</span>
+                  <a href="#" class="btn btn-add-to-cart"> Add to cart </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card">
+              <div class="position-relative">
+                <img
+                  src="bell paper.jpg"
+                  class="card-img-top"
+                  alt="Bell Pepper"
+                />
+                <span class="tag">Vegetable</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Bell Papper</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$7.99 / kg</span>
+                  <a href="#" class="btn btn-add-to-cart"> Add to cart </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+            <div class="card">
+              <div class="position-relative">
+                <img src="potato.jpg" class="card-img-top" alt="Potatoes" />
+                <span class="tag">Vegetable</span>
+              </div>
+              <div class="card-body">
+                <h5 class="card-title">Potatoes</h5>
+                <p class="card-text">
+                  Lorem ipsum dolor sit amet consectetur adipiscing elit sed do
+                  eiusmod te incididunt
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span class="price">$7.99 / kg</span>
+                  <a href="#" class="btn btn-add-to-cart"> Add to cart </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- fresh exotic fruit -->
+    <div class="exotic">
+      <div class="top-bar"></div>
+      <section class="hero-section">
+        <div class="container-fluid">
+          <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start hero-content">
+              <h1 class="hero-title">Fresh Exotic Fruits<br />in Our Store</h1>
+              <p class="hero-text mt-3">
+                The generated Lorem Ipsum is therefore always free from
+                repetition injected humour, or non-characteristic words etc.
+              </p>
+              <button class="btn btn-buy mt-4">BUY</button>
+            </div>
+            <div
+              class="col-md-6 image-container mt-4 mt-md-0 d-flex justify-content-center"
+            >
+              <div class="position-relative">
+                <img
+                  src="banner.png"
+                  alt="Basket of apples"
+                  class="img-fluid img-fluid-custom"
+                />
+                <div class="price-tag">
+                  <span class="price">1<sup>50$</sup></span>
+                  <span class="unit">kg</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+    <hr />
+
+    <!-- bestseller product -->
+    <div class="bestseller">
+      <br /><br />
+      <center>
+        <h1 style="font-size: 50px; font-weight: bold">Bestseller Products</h1>
+      </center>
+      <center>
+        <p>
+          Latin words, combined with a handful of model sentence structures, to
+          generate Lorem <br />
+          Ipsum which looks reasonable.
+        </p>
+      </center>
+      <div class="container py-5">
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="orange.jpg"
+                class="card-img-circle"
+                alt="Organic Oranges"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="rasberies.jpg"
+                class="card-img-circle"
+                alt="Organic Raspberries"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="banana.jpg"
+                class="card-img-circle"
+                alt="Organic Bananas"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="apricots.jpg"
+                class="card-img-circle"
+                alt="Organic Apricots"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="grapes.jpg"
+                class="card-img-circle"
+                alt="Organic Grapes"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <div class="col">
+            <div class="card p-3 text-center">
+              <img
+                src="apple.jpg"
+                class="card-img-circle"
+                alt="Organic Apple"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Organic Tomato</h5>
+                <div class="rating mb-2">
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                  <span class="star">&#9733;</span>
+                </div>
+                <p class="card-text fs-4">$3.12</p>
+                <button class="btn add-to-cart-btn w-75">
+                  <i class="bi bi-cart-plus me-2"></i>Add to cart
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- sec2 -->
+    <div class="sec12">
+      <div class="container card-container">
+        <div class="row g-4">
+          <div class="col-sm-6 col-md-3">
+            <div class="card custom-card">
+              <div class="icon"></div>
+              <img src="icon.png" class="w-25" style="margin-left: 100px" />
+              <div class="title">SATISFIED CUSTOMERS</div>
+              <div class="number">1963</div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3">
+            <div class="card custom-card">
+              <div class="icon"></div>
+              <img src="icon.png" class="w-25" style="margin-left: 100px" />
+              <div class="title">QUALITY OF SERVICE</div>
+              <div class="number">99%</div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3">
+            <div class="card custom-card">
+              <div class="icon"></div>
+              <img src="icon.png" class="w-25" style="margin-left: 100px" />
+              <div class="title">QUALITY CERTIFICATES</div>
+              <div class="number">33</div>
+            </div>
+          </div>
+
+          <div class="col-sm-6 col-md-3">
+            <div class="card custom-card">
+              <div class="icon"></div>
+              <img src="icon.png" class="w-25" style="margin-left: 100px" />
+              <div class="title">AVAILABLE PRODUCTS</div>
+              <div class="number">789</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- Testimonial -->
+    <div class="testimonial">
+      <div class="container testimonial-section">
+        <div class="row text-center mb-4">
+          <div class="col-12">
+            <p class="testimonial-heading mb-0">Our Testimonial</p>
+            <h2 class="client-saying mb-4">Our Client Saying!</h2>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="col-md-5 mb-4 d-flex">
+            <div class="testimonial-card d-flex flex-column">
+              <p class="text-secondary">
+                Lorem Ipsum is simply dummy text of the printing Ipsum has been
+                the industry's standard dummy text ever since the 1500s,
+              </p>
+              <div class="divider"></div>
+              <div class="d-flex align-items-center mt-auto">
+                <img src="testimonial-1.jpg" alt="Client" class="profile-img" />
+                <div class="ms-3">
+                  <h6 class="mb-0">Client Name</h6>
+                  <small class="text-muted">Profession</small>
+                  <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                  </div>
+                </div>
+                <div class="ms-auto quotation-mark">
+                  <span>”</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-5 mb-4 d-flex">
+            <div class="testimonial-card d-flex flex-column">
+              <p class="text-secondary">
+                Lorem Ipsum is simply dummy text of the printing Ipsum has been
+                the industry's standard dummy text ever since the 1500s,
+              </p>
+              <div class="divider"></div>
+              <div class="d-flex align-items-center mt-auto">
+                <img src="testimonial-1.jpg" alt="Client" class="profile-img" />
+                <div class="ms-3">
+                  <h6 class="mb-0">Client Name</h6>
+                  <small class="text-muted">Profession</small>
+                  <div class="rating">
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                    <span class="star">&#9733;</span>
+                  </div>
+                </div>
+                <div class="ms-auto quotation-mark">
+                  <span>”</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr />
+
+    <!-- footer -->
+    <div class="footer1">
+      <footer class="footer">
+        <div class="container-fluid py-5">
+          <div class="container">
+            <div class="row g-5">
+              <div class="col-lg-3 col-md-6 d-flex align-items-center">
+                <div class="logo">
+                  <h1 class="text-info display-6 mb-0">Fruitables</h1>
+                  <p class="text-white-50">Fresh products</p>
+                </div>
+              </div>
+              <div
+                class="col-lg-6 col-md-6 d-flex align-items-center justify-content-center"
+              >
+                <div class="input-group">
+                  <input
+                    type="email"
+                    class="form-control rounded-pill border-0 py-3 ps-4 pe-5"
+                    placeholder="Your Email"
+                  />
+                  <button
+                    type="button"
+                    class="btn text-white py-3 px-4"
+                    style="
+                      background-color: #90b355;
+                      border-radius: 0 50px 50px 0;
+                      margin-left: -50px;
+                      z-index: 1;
+                    "
+                  >
+                    Subscribe Now
+                  </button>
+                </div>
+              </div>
+              <div
+                class="col-lg-3 col-md-6 d-flex justify-content-end align-items-center"
+              >
+                <div class="d-flex social-icons">
+                  <a
+                    href="#"
+                    class="me-2 rounded-circle text-white p-2"
+                    style="background-color: #5f665f"
+                    ><i class="fab fa-twitter"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="me-2 rounded-circle text-white p-2"
+                    style="background-color: #5f665f"
+                    ><i class="fab fa-facebook-f"></i
+                  ></a>
+                  <a
+                    href="#"
+                    class="me-2 rounded-circle text-white p-2"
+                    style="background-color: #5f665f"
+                    ><i class="fab fa-linkedin-in"></i
+                  ></a>
+                </div>
+              </div>
+            </div>
+            <hr class="my-4" style="border-color: #5f665f" />
+            <div class="row g-5">
+              <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                  <h4 class="text-white mb-4">Why People Like Us!</h4>
+                  <p>
+                    typesetting, remaining essentially unchanged. It was
+                    popularised in the 1960s with the like Aldus PageMaker
+                    including of Lorem Ipsum.
+                  </p>
+                  <a
+                    href="#"
+                    class="btn border-secondary rounded-pill text-white py-3 px-5 mt-4"
+                    style="background-color: #90b355"
+                    >Read More</a
+                  >
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="d-flex flex-column text-start footer-item">
+                  <h4 class="text-white mb-4">Shop Info</h4>
+                  <a class="btn-link text-white-50" href="#">About Us</a>
+                  <a class="btn-link text-white-50" href="#">Contact Us</a>
+                  <a class="btn-link text-white-50" href="#">Privacy Policy</a>
+                  <a class="btn-link text-white-50" href="#"
+                    >Terms & Condition</a
+                  >
+                  <a class="btn-link text-white-50" href="#">Return Policy</a>
+                  <a class="btn-link text-white-50" href="#">FAQs & Help</a>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="d-flex flex-column text-start footer-item">
+                  <h4 class="text-white mb-4">Account</h4>
+                  <a class="btn-link text-white-50" href="#">My Account</a>
+                  <a class="btn-link text-white-50" href="#">Shop details</a>
+                  <a class="btn-link text-white-50" href="#">Shopping Cart</a>
+                  <a class="btn-link text-white-50" href="#">Wishlist</a>
+                  <a class="btn-link text-white-50" href="#">Order History</a>
+                  <a class="btn-link text-white-50" href="#"
+                    >International Orders</a
+                  >
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-6">
+                <div class="footer-item">
+                  <h4 class="text-white mb-4">Contact</h4>
+                  <p>Address: 1429 Netus Rd, NY 48247</p>
+                  <p>Email: Example@gmail.com</p>
+                  <p>Phone: +0123 4567 8910</p>
+                  <p class="mb-3">Payment Accepted</p>
+                  <div class="payment-icons">
+                    <img src="https://i.imgur.com/2s46u31.png" alt="Visa" />
+                    <img
+                      src="https://i.imgur.com/vHqQJ5I.png"
+                      alt="Mastercard"
+                    />
+                    <img src="https://i.imgur.com/22J95nL.png" alt="Amex" />
+                    <img src="https://i.imgur.com/T0bH0D9.png" alt="Paypal" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <div
+        class="container-fluid copyright bg-dark py-4"
+        style="background-color: #3c423c"
+      >
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-md-6 text-center text-md-start mb-3 mb-md-0 text-white-50"
+            >
+              &copy; <a class="text-info" href="#">Your Site Name</a>, All right
+              reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end text-white-50">
+              Designed By
+              <a class="border-bottom" href="https://htmlcodex.com"
+                >Aniket Wani</a
+              >
+              Distributed By
+              <a class="border-bottom" href="https://themewagon.com"
+                >A2Z IT HUB</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //Navbar fixed
+      window.addEventListener("scroll", () => {
+        const navbar = document.querySelector(".sec1");
+        const stickyPoint = navbar.offsetTop;
+
+        if (window.scrollY > stickyPoint) {
+          navbar.classList.add("sticky");
+        } else {
+          navbar.classList.remove("sticky");
+        }
+      });
+      // organic
+      document.addEventListener("DOMContentLoaded", () => {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            // Step 1: Remove 'active' class from all buttons
+            filterButtons.forEach((btn) => {
+              btn.classList.remove("active");
+            });
+
+            // Step 2: Add 'active' class to the clicked button
+            button.classList.add("active");
+          });
+        });
+      });
+      const addToCartButtons = document.querySelectorAll(".btn-add-to-cart");
+      const cartBadge = document.querySelector(".cart-badge");
+
+      addToCartButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          let currentCount = parseInt(cartBadge.textContent);
+          currentCount++;
+
+          cartBadge.textContent = currentCount;
+        });
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const productItems = document.querySelectorAll(".filter-item");
+
+        filterButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            filterButtons.forEach((btn) => btn.classList.remove("active"));
+            button.classList.add("active");
+
+            const filterValue = button.getAttribute("data-filter");
+
+            productItems.forEach((item) => {
+              if (
+                filterValue === "all" ||
+                item.getAttribute("data-category") === filterValue
+              ) {
+                item.style.display = "block";
+              } else {
+                item.style.display = "none";
+              }
+            });
+          });
+        });
+      });
+    </script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+      crossorigin="anonymous"
+    ></script>
+
+    <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let total = cart.reduce((sum, item) => sum + item.quantity, 0);
+    const cartCountBadge = document.getElementById('cart-count');
+    if (cartCountBadge) {
+      cartCountBadge.textContent = total;
+    }
+  });
+</script>
+  </body>
+</html>
